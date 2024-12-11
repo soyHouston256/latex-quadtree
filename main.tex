@@ -34,8 +34,8 @@
 % TITLE
 %----------------------------------------------------------
 
-\journalname{Practica 01}
-\title{ Problemas de optimización y Heurísticas}
+\journalname{Trabajo Final}
+\title{ Detección de Fraude en Operaciones con Tarjetas}
 
 %----------------------------------------------------------
 % AUTHORS AND AFFILIATIONS
@@ -61,7 +61,7 @@
 % DATES
 %----------------------------------------------------------
 
-\dates{Este archivo fue compilado el 26 de Octubre del 2024}
+\dates{Este archivo fue compilado el 11 de Diciembre del 2024}
 
 %----------------------------------------------------------
 % FOOTER INFORMATION
@@ -106,239 +106,79 @@
 % OPTIMIZATION PROBLEMS
 %---------------------------------------------------------- 
     \maketitle
-    \section{Problemas de optimización}
+    \section{Resumen}
+    \section{Introducción}
 
-        \rhostart{M}uchos problemas en campos cuantitativos como las finanzas y la ingeniería son problemas de optimización. Los problemas de optimización se encuentran en el centro de la compleja toma de desiciones y la definición de estrategias.
-    
-        \subsection{Max-Cut y Problema del Vendedor Viajero}
-            La computación cuántica aborda por Qiskit~\cite{qiskit2024}, problemas de optimización, específicamente los problemas de Max-Cut y el Problema del Vendedor Viajero (TSP). Ambos son problemas NP-completos, lo que significa que son difíciles de resolver clásicamente para un conjunto $N$ grande de nodos.
-            El problema Max-Cut busca dividir los nodos de un grafo $G = (V,E)$ en dos subconjuntos $S$ y $\bar{S}$, maximizando la función objetivo:
-            \begin{equation}
-                \text{Max-Cut}(S) = \sum_{(i,j) \in E} w_{ij}x_i(1-x_j)
-            \end{equation}
+        \rhostart{E}l fraude en transacciones con tarjetas de crédito o débito se ha vuelto un problema crítico en Perú, donde, de acuerdo con datos del INEI (2024), estos ciberdelitos vienen presentando un aumento significativo con respecto a años anteriores. Esta problemática no solo genera pérdidas económicas significativas, sino también una pérdida de confianza por parte del cliente hacia el sistema bancario nacional.
 
-            donde:
-            \begin{itemize}
-                \item $w_{ij}$ representa el peso de la arista entre los nodos $i$ y $j$
-                \item $x_i \in \{0,1\}$ indica la asignación del nodo $i$ al subconjunto
-            \end{itemize}
-            El TSP se puede fórmular matemáticamente como:
-
-            \begin{equation}
-                \min \sum_{i=1}^{n} \sum_{j=1}^{n} c_{ij}x_{ij}
-            \end{equation}
-            sujeto a:
-            \begin{align} \sum_{j=1}^{n} x_{ij} = 1, \quad \forall i \quad \sum_{i=1}^{n} x_{ij} = 1, \quad \forall j \quad x_{ij} \in {0,1}, \quad \forall i,j \end{align}
-
-            Para un grafo con $n=4$ nodos, el espacio de soluciones es:
-
-            \begin{equation}
-                \text{Total de combinaciones} = 2^n = 2^4 = 16
-            \end{equation}
-
-            La complejidad computaciónal crece exponencialmente con el número de nodos: \begin{equation}O(2^n)\end{equation}
-
-            Para cada combinación $c \in \{0,1\}^n$, se evalúa la función de costo:
-
-            \begin{equation}
-                f(c) = \sum_{(i,j) \in E} w_{ij}c_i(1-c_j)
-            \end{equation}
-
-            La solución óptima $c^*$ es aquella que maximiza esta función:
-
-            \begin{equation}
-                c^* = \max_{c \in \{0,1\}^n} f(c)
-            \end{equation}
-
-            En este ejemplo particular, la solución óptima alcanza un costo de 4.0 unidades.
-
-            Figure \ref{fig:figure} Grafo con 4 vertices.
-                
-            \begin{figure}[H]
-                \centering
-                \includegraphics[width=0.71\columnwidth]{grafo.pdf}
-                \caption{Grafo con 4 vertices}
-                \label{fig:figure}
-            \end{figure}
-
-            Si bien este enfoque funciona para grafos pequeños, su escalabilidad es muy limitada. El número de combinaciones posibles crece exponencialmente con el número de nodos, siguiendo la función:
-
-            \begin{equation}
-                f(n) = 2^n
-            \end{equation}
-
-            Para ilustrar esta explosión combinatoria, consideremos un grafo con $n = 1000$ nodos:
-
-            \begin{equation}
-                f(1000) = 2^{1000} \approx 1.071 \times 10^{301}
-            \end{equation}
-
-            Este número es astronómicamente grande, haciendo que el enfoque de fuerza bruta sea computaciónalmente inviable. Para contextualizar:
-
-            \begin{itemize}
-                \item El número de átomos en el universo observable es aproximadamente $10^{80}$
-                \item El número de operaciones por segundo de la supercomputadora más rápida es del orden de $10^{18}$
-            \end{itemize}
-
-            Por lo tanto, incluso si pudiéramos evaluar un millón de combinaciones por segundo:
-
-            \begin{equation}
-                \text{Tiempo de cómputo} \approx \frac{2^{1000}}{10^6} \text{ segundos}
-            \end{equation}
-
-            Este tiempo excede por mucho la edad actual del universo, demostrando la inviabilidad práctica del enfoque de fuerza bruta para problemas de gran escala.
-                
-        \subsection[Gestión de asignación de potencia (Knapsack)]{Gestión de asignación de potencia utilizando el algoritmo del problema de la mochila(Knapsack)}
-
-            Este método explora un sistema de gestión de asignación de energía que utiliza el problema de la mochila para optimizar el consumo energético en hogares.  Morimoto et al.~\cite{Morimoto2014} proponen una solución que consiste en enchufes inteligentes y un controlador centralizado que se comunican a través de Wi-Fi. El controlador utiliza un algoritmo de programación dinámica para resolver el problema de la mochila, decidiendo qué electrodomésticos encender o apagar para maximizar la calidad de vida del usuario sin superar un límite de consumo total. Se presentan resultados experimentales que demuestran que el sistema puede funcionar de manera eficiente y práctica estas desiciones se hacen siguiendo las siguientes fórmulas.
-            \begin{align}
-                &\max \sum_{i=1}^{n} p_ix_i \\
-                &\text{s.t.} \sum_{i=1}^{n} w_ix_i \leq c, x_i \in \{0,1\}
-            \end{align}
-            Entonces para poder llevarlo a un lenguaje computaciónal tendríamos el siguiente pseudocódigo.
-            
-            \begin{algorithm}
-                \caption{Algoritmo de Programación Dinámica para Knapsack}
-                \begin{algorithmic}[1]
-                \Require $n$ items con pesos $w_i$ y valores $p_i$, capacidad $c$
-                \Ensure Tabla $P$ con valores óptimos
-                \For{$j = 0$ \textbf{to} $c$}
-                    \State $P(0,j) \gets 0$
-                \EndFor
-                \For{$i = 1$ \textbf{to} $n$}
-                    \For{$j = 0$ \textbf{to} $c$}
-                        \If{$j \geq w_i$}
-                            \State $P(i,j) \gets \max\{P(i-1,j-w_i) + p_i, P(i-1,j)\}$
-                        \Else
-                            \State $P(i,j) \gets P(i-1,j)$
-                        \EndIf
-                    \EndFor
-                \EndFor
-                \end{algorithmic}
-            \end{algorithm}
-
-
-%----------------------------------------------------------
-%----------------------------------------------------------
-% REAL HEURISTIC
-%----------------------------------------------------------    
+        El país y el mundo entero han experimentado una ola de digitalización a raíz de la pandemia; esto provocó un incremento de los cibercriminales y, en el contexto de este estudio, un aumento de los fraudes en las transacciones con tarjetas. Esto resalta la necesidad por parte del sistema bancario de implementar soluciones robustas que ayuden a mitigar, reducir y detectar las transacciones fraudulentas en tiempo real. 
         
-        \subsection{Optimización de Portafolio Financiero}
-            La optimización de portafolios financieros es fundamental en la gestión de inversiones, y su objetivo es lograr un equilibrio adecuado entre el rendimiento y el riesgo en la selección de activos. La Teoría Moderna de Portafolio (MPT), propuesta por Markowitz en 1952, establece un marco para maximizar el rendimiento esperado y minimizar el riesgo a través de una diversificación eficiente (Deb.K, 2001) \cite{Deb2001}. El principal desafío radica en considerar la incertidumbre inherente de los mercados financieros y los riesgos asociados a cada inversión.
-            \\
-            La MPT se basa en dos principios fundamentales: maximizar el rendimiento esperado y minimizar el riesgo, generalmente representado por la varianza del rendimiento. Para formalizar estos conceptos, sea un portafolio compuesto por n activos, donde el peso de cada activo i en el portafolio está dado por ${w}_{i}$. El rendimiento esperado $E\left({R}_{P}\right)$ del portafolio es:
+        La detección de fraude en transacciones con tarjetas de crédito plantea desafíos significativos. Este problema se caracteriza por la presencia de datos desbalanceados, donde las transacciones fraudulentas representan menos del 1\% del total. Esto genera que los modelos de IA tiendan a favorecer la clase mayoritaria (transacciones normales), comprometiendo su capacidad para identificar patrones fraudulentos. Además, las transacciones fraudulentas evolucionan constantemente, adaptándose a nuevas medidas de seguridad, lo que exige modelos dinámicos y altamente generalizables. 
+        
+        Este estudio propone evaluar cinco enfoques de modelado avanzado: Redes Neuronales Artificiales (ANNs), XGBoost, Random Forest, CatBoost y LightGBM, aplicando técnicas de preprocesamiento para manejar datos desbalanceados y mejorar la detección de transacciones fraudulentas. Estos modelos se analizan bajo métricas clave como el F1-score, precisión y sensibilidad, con el objetivo de identificar las metodologías más efectivas para enfrentar el fraude en el contexto peruano, caracterizado por su creciente digitalización y exposición a delitos financieros.
+        
+        Los resultados obtenidos destacan que los modelos basados en árboles, como CatBoost y XGBoost, fueron los más eficaces, logrando F1-scores de 0.90 y 0.88, respectivamente. Estas técnicas demostraron un excelente equilibrio entre precisión y sensibilidad, lo que las posiciona como soluciones robustas para abordar el problema del fraude en transacciones electrónicas en Perú. Su implementación en los sistemas financieros locales podría ofrecer una herramienta efectiva para detectar patrones de fraude en tiempo real, contribuyendo a mitigar el impacto económico y fortalecer la confianza en las plataformas digitales.
 
-            \begin{equation}
-                \label{ec:ecuacion1}
-            E\left({R}_{P}\right)=\sum _{i=1}^{n}{w}_{i}E\left({R}_{i}\right)
-            \end{equation}
+    \section{Trabajos relacionados}
+        El sector bancario enfrenta el aumento de fraudes con tarjetas de crédito, esto principalmente se debe al incremento de operaciones en línea. Xuan, et al. (2018) separan este problema en dos formas de fraude: el primero consiste en conseguir una tarjeta de crédito suplantando la identidad de otra persona y otro es robando la información sensible como contraseña, número de tarjeta o CVV. Awoyemi, et al. (2017) argumentan que el aumento de este tipo de fraude se debe a la digitalización del dinero y el modo de pago en línea está tomando mayor protagonismo en comparación a las transacciones en efectivo, lo cual incrementa la probabilidad de un fraude cibernético. Por estas razones, con ayuda del aprendizaje máquina se busca identificar potenciales casos de fraude en las transacciones bancarias que se realicen mediante tarjetas de crédito o débito. Alvarado, et al. (2023) implementan un modelo predictivo que permite clasificar aquellas transacciones anómalas; como parte de su investigación se presentaron ciertas dificultades con respecto al conjunto de datos, por lo que emplearon un muestreo aleatorio con reemplazo para incrementar los datos del grupo inferior.
 
-            donde $E\left({R}_{i}\right)$ es el rendimiento esperado del activo $i$
-            \\
-
-            El riesgo asociado, representado por la varianza del portafolio ${\sigma }^{2}_{p}$, está dado por:
-
-            \begin{equation}
-            {\sigma }^{2}_{p}=\sum _{i=1}^{n}\sum _{j=1}^{n}{w}_{i}{w}_{j}Cov\left({R}_{i},{R}_{j}\right)
-            \end{equation}
-
-            donde $Cov\left({R}_{i},{R}_{j}\right)$ es la covarianza entre los rendimientos de los activos {i}, {j}
-
-            \vspace{2mm}El objetivo de la optimización del portafolio es resolver el siguiente problema de programación cuadrática:
-
-            \begin{center}
-                $\underset{w}{\mathrm{min}}\frac{1}{2}{w}^{t}\Sigma w$ sujeto a ${w}^{t}1=1$, ${w}_{i}\ge 0$     
-            \end{center}
-
-            \vspace{2mm}donde $\Sigma $ es la matriz de covarianzas y ${w}$ representa el vector de pesos.
-
-            \vspace{2mm}La optimización de portafolios según Markowitz se enfrenta a varios desafíos prácticos, entre ellos:
-
-            \begin{itemize}
-                \item \textbf{Dimensionalidad alta:} A medida que crece el número de  activos en el portafolio, la complejidad computacional de la optimización crece exponencialmente debido a la necesidad de calcular las covarianzas entre los activos.
-                \item \textbf{Inestabilidad de los parámetros:} Las estimaciones de rendimientos y covarianzas son frecuentemente volátiles, afectando la robustez de las soluciones.
-                \item \textbf{Costos de transacción y restricciones prácticas:} Los modelos clásicos no consideran costos de transacción ni restricciones de mercado, lo que limita su aplicabilidad segun (Deb.K, 2001)\cite{Deb2001}.
-            \end{itemize}
-
-            \noindent Para abordar estas limitaciones, se han propuesto enfoques avanzados que incluyen algoritmos heurísticos y metaheurísticos, así como modelos robustos que tienen en cuenta la incertidumbre de los parámetros.
-
-            Los algoritmos metaheurísticos, como los \textbf{algoritmos genéticos (GA)}, el \textbf{recocido simulado (simulated annealing)} y el \textbf{algoritmo de colonia de hormigas}, han demostrado ser eficaces para abordar la optimización de portafolios en escenarios complejos y no lineales. Estos enfoques no garantizan una solución óptima global, pero tienen la ventaja de explorar de manera eficiente grandes espacios de búsqueda (Dorigo \& Stützle, 2004; Kirkpatrick et al., 1983)\cite{Dorigo2004, Kirkpatrick1983}.
-            \begin{itemize}
-                \item \textbf{Algoritmos Genéticos}: Utilizan principios de evolución biológica y se destacan en problemas con restricciones no lineales (Deb.K, 2001)\cite{Deb2001}.
-                \item \textbf{Recocido Simulado}: Inspirado en el enfriamiento de metales, permite escapar de óptimos locales y realizar una exploración más profunda del espacio de soluciones \cite{Kirkpatrick1983}.
-                \item \textbf{Algoritmo de Colonia de Hormigas}: Emula el comportamiento colectivo de las hormigas y ha mostrado buenos resultados en problemas con restricciones de cardinalidad y costos de transacción (Dorigo \& Stützle, 2004) \cite{Dorigo2004}.
-            \end{itemize}
-
-            \noindent Estas técnicas permiten abordar de manera eficiente problemas que involucran múltiples restricciones y objetivos, proporcionando una mejora en la robustez de las soluciones en comparación con los enfoques tradicionales.
-
-            \vspace{2mm}\noindent Además de los enfoques metaheurísticos, los modelos robustos han ganado popularidad en los últimos años. Estos modelos abordan la incertidumbre en las estimaciones de los parámetros, utilizando técnicas como el enfoque de conjuntos robustos para considerar una gama de escenarios adversos en la optimización del portafolio .
-            El enfoque robusto busca soluciones que sean menos sensibles a las variaciones de los datos de entrada, lo que es especialmente útil en mercados financieros volátiles (Ben-Tal, El Ghaoui y Nemirovski, 2009)\cite{BenTal2009}.
-
-    \section{Heurística}
-        \subsection{Método Johnson}
-            El método de Johnson se presenta como una heurística desarrollada para resolver problemas de secuenciación de tareas y planificación, especialmente aquellos donde se busca optimizar el tiempo total de procesamiento en un sistema. En este contexto, el término \textit{heurística} implica que el método de Johnson no necesariamente garantiza la solución óptima en todos los escenarios, sino que ofrece una aproximación que logra un equilibrio entre la calidad de la solución y el costo computaciónal. Esto es particularmente útil cuando el problema es de gran escala, lo que hace inviable analizar todas las soluciones posibles.
-            \par\medskip            
-            Aplicado a la planificación de redes eléctricas, el método de Johnson permite la asignación eficiente de puntos de demanda a subestaciones mediante una secuencia que minimiza el tiempo y los costos operacionales. En el análisis de Breda y Mestria~\cite{Breda2023}, el método Johnson se emplea específicamente para estructurar la red eléctrica de forma óptima. La heurística de Johnson asigna cada punto de demanda a una subestación cercana de acuerdo con una secuencia de desiciones que minimiza el costo incremental. Esto, a su vez, logra una asignación balanceada que mantiene una operación estable y confiable en la red. Según el estudio, este método heurístico ofrece una solución eficiente y de alta calidad, lo que lo convierte en una herramienta poderosa para abordar problemas de gran escala en el ámbito de la optimización de redes.
-
-        \subsection{Algoritmos Genéticos}
-            Los Algoritmos Genéticos \textbf{(Genetic Algorithms, GA)} según Michalewicz (1999), Bäck et al. (1997) y Díaz et al. (1996)\cite{Michalewicz1999, Back1997, Diaz1996} son una familia de modelos computaciónales inspirados en los mecanismos de herencia y evolución natural.\vspace{1mm} \\ 
-            Mediante una imitación del mecanismo genético de los organismos biológicos, los algoritmos genéticos exploran el espacio de soluciones asociado a un determinado problema. Se establece una codificación apropiada de las soluciones del espacio de búsqueda y una forma de evaluar la función objetivo para cada una de estas codificaciones. Las soluciones se identifican con individuos que pueden formar parte de la población de búsqueda. La codificación de una solución se interpreta como el cromosoma del individuo compuesto de un cierto número de genes a los que les corresponden ciertos alelos. El gen es la característica del problema; alelo, el valor de la característica; genotipo, la estructura y fenotipo, la estructura sometida al problema. Cada cromosoma es una estructura de datos que representa una de las posibles soluciones del espacio de búsqueda del problema. Los cromosomas son sometidos a un proceso de evolución que envuelve evaluación, selección, recombinación sexual o cruce y mutación. Después de varios ciclos de evolución la población deberá contener individuos más aptos.
-            Se consideran dos operaciones básicas: \textbf{\textit{la mutación}} y \textbf{\textit{el cruce}}. La mutación de un individuo consiste en modificar uno o varios genes cambiando al azar el alelo correspondiente. El cruce de dos individuos, llamados padres, produce un individuo hijo tomando un numero $k$ (elegido al azar) de genes de uno de los padres y los $t-k$ del otro. La población evoluciona de acuerdo a las estrategias de selección de individuos, tanto para las operaciones como para la supervivencia. La selección se puede hacer simulando una lucha entre los individuos de la población con un procedimiento que, dados dos individuos, selecciona uno de ellos teniendo en cuenta su valoración (la función objetivo) y la adaptación al ambiente y a la población (criterios de diversidad, representatividad).
-
-            Mediante una imitación de este mecanismo, los algoritmos genéticos exploran el espacio de soluciones asociado a un determinado problema. \textbf{Algorithm} \ref{alg:AG} presenta el esquema básico del algoritmo genético. En cada iteración $t$, se mantiene una población de individuos $P\left(t\right)=\left\{{x}_{1}^{t},\cdots, {x}_{n}^{t}\right\}$ donde cada individuo representa una potencial solución del problema a resolver. Cada solución ${x}_{1}^{t}$ se evalúa para obtener cierta medida de su calidad o fitness. Luego, se genera una nueva población $P\left(t + 1\right)$ tomando como base a los mejores individuos; algunos de los cuales sufren transformaciones a partir de la aplicación de operadores “genéticos”.
-            
-            \begin{algorithm}
-                \caption{Esquema básico de un Algoritmo Genético}
-                \begin{algorithmic}[1]
-                \Procedure{AG}{}
-                \State $t \gets 0$
-                \State inicializar$(P(t))$
-                \State evaluar$(P(t))$
-                \While{no-finalizacion}
-                    \State $t \gets t + 1$
-                    \State Seleccionar $P(t)$ desde $P(t-1)$
-                    \State Hacer-Cruzamientos$(P(t))$
-                    \State Aplicar-Mutaciones$(P(t))$
-                \EndWhile
-                \State \textbf{return} mejor solución
-                \EndProcedure
-                \end{algorithmic}
-                \label{alg:AG}
-            \end{algorithm}
-
-
-            Típicamente, estos operadores son: cruzamiento o crossover (nuevos individuos son generados a partir de la combinación de dos o más individuos), y mutación (nuevos individuos son generados a partir de pequeños cambios en un individuo).
-            La idea intuitiva del operador de cruce es permitir el intercambio de información entre individuos de la población. La mutación, en cambio, permite incorporar nueva información que no se puede generar a partir de la clausura transitiva del cruce sobre la población.
-            Se puede entender el mecanismo de selección si se plantea cada iteración del Algoritmo
-            Genético como un proceso en dos etapas. En la primera, se aplica algún mecanismo de selección sobre la “población actual” para crear una “población intermedia”; y en la segunda etapa, a partir de esta población, se aplica cruce y mutación para generar una “nueva población”.
-            El resultado del proceso de selección es un conjunto de entrecruzamiento formado por los mejores individuos de la población. En base a ellos, la etapa de cruce elegirá a los padres y generará a los hijos; sobre la salida de esta etapa, se ejecutará la etapa de mutación. La nueva población puede estar formada solamente por los hijos, o por padres e hijos en alguna proporción adecuada.
-
-        \subsection{Algoritmos Greedy}
-            El método \textit{greedy} es una heurística que se destaca en problemas de optimización combinatoria debido a su enfoque basado en desiciones inmediatas y locales. La esencia de este método radica en seleccionar, en cada etapa del proceso, la opción que parece más ventajosa en ese momento, es decir, la que maximiza el beneficio o minimiza el costo de forma inmediata, sin analizar el impacto que dicha elección puede tener en etapas futuras. Este enfoque no asegura que se alcance siempre la solución óptima global; sin embargo, es sumamente útil para problemas en los que el análisis de todas las combinaciones posibles sería impráctico o consumiría demasiados recursos.
-            \par\medskip
-            Al operar bajo esta lógica, el método \textit{greedy} se adapta bien a situaciones donde el tiempo y los recursos de cálculo son limitados, ofreciendo soluciones rápidas y lo suficientemente buenas en la mayoría de los casos. Mari~\cite{Mari2020} lo aplica en problemas NP-hard, como el de cobertura máxima y el conjunto independiente, donde el número de posibles soluciones es exponencial. En cada uno de estos problemas, la estrategia \textit{greedy} selecciona iterativamente la opción con el mayor beneficio local inmediato, logrando así una solución aceptable sin necesidad de explorar todas las alternativas. A través de esta aproximación, Mari demuestra que el método \textit{greedy} es una herramienta versátil y eficaz en problemas de alta complejidad, ya que permite obtener resultados satisfactorios de manera eficiente y con menor costo computaciónal que los métodos exactos. En resumen, el método \textit{greedy} se consolida como una heurística valiosa cuando el objetivo es encontrar soluciones de calidad en menor tiempo, sin exigir precisión absoluta.
+        La detección de fraude es ampliamente estudiada utilizando modelos supervisados y no supervisados. Wang, et al. (2019) implementaron XGBoost para datos desbalanceados, alcanzando un F1-score de 0.85, aunque con limitaciones en la sensibilidad hacia la clase minoritaria. Por otro lado, Sahin, et al. (2020) demostraron que ANNs pueden lograr una precisión del 90\% en datos sintéticos, pero con altos costos computacionales.
     
+        Lemaitre, et al. (2017) exploraron técnicas de sobremuestreo combinadas con Random Forest, obteniendo un F1-score de 0.87, aunque con limitaciones en datasets reales. CatBoost, desarrollado por Prokhorenkova, et al. (2018), ha sido utilizado para problemas con datos categóricos, logrando una mejor generalización. Finalmente, LightGBM, como destaca Ke, et al. (2017), ha mostrado ser eficiente para grandes datasets, pero sensible a configuraciones incorrectas.
 %----------------------------------------------------------
 %----------------------------------------------------------
 % REAL CASES
 %----------------------------------------------------------
-    \section{Casos reales}
+    \section{Propuesta}
 
-        \subsection{Detección de abuso y fraude en servicios de streaming mediante Machine Learning con reconocimiento heurístico}
-        La Plataforma de streaming Netflix desarrollo un framework para la detección de fraudes en su aplicación empleando algoritmos heurísticos desarrollados en la compañía y Machine Learning (ML), usando diferentes fuentes de datos como la trazabilidad de los usuarios, conexiones, contenido visualizado, ubicaciones, entre otros. Los autores Esmaeilzadeh et al. (2022)~\cite{Esmaeilzadeh2022} expresan en su artículo que desarrollar un modelo ML para la detección de anomalías en el contexto de su aplicación implica muchos retos, entre ellos están, el análisis en tiempo real que puede llegar a ser costoso en términos de infraestructura y poca escalable, la definición de anomalía depende del contexto de negocio y aplicación y la cantidad de datos para alimentar al modelo, ya que al tratarse de casos no recurrentes se presenta una disparidad en la cantidad de datos. Debido a estas razones los autores plantean las siguientes soluciones. Primero, una solución basada en reglas que permita identificar irregularidades tomando como base el conocimiento y experiencia de los expertos de negocio, brindando características esenciales y contexto sobre los incidentes que permitan elaborar algoritmos heurísticos. Segundo, aplicar otra solución basada en modelo que permita identificar los casos anormales en la plataforma de forma automática. Para ejecutar este marco de trabajo primero se separaron en tres tipos de fraude, de cuentas, servicios y contenido, entonces la primera solución planteada complementa a la segunda, ya que ayuda a etiquetar y limpiar los datos que ingesta a la segunda solución, con la finalidad de identificar cual es el fraude que más se comete en la aplicación y poder identificar la cuenta asociada al cliente que infringen las políticas de la aplicación. Por último, con algoritmos heurísticos desarrollados con base a la experiencia y conocimiento de los expertos, complementa un modelo ML incrementando su precisión hasta en un 86\% en el análisis de fraude en tiempo real.
-
-        \subsection{Uso de Machine Learning para predecir el próximo archivo}
-        Un segundo caso de éxito lo aplica la empresa de servicio de almacenamiento en la nube Dropbox, en su artículo de ingeniería el autor Kumar (2019)~\cite{Kumar2019} presenta como una funcionalidad de predicción de archivos que parece simple para el usuario tiene una gran complejidad por detrás, esto se debe a que para poder desarrollarlo realizaron algunos algoritmos heurísticos tomando como punto de inicio variables como la frecuencia con la que se accede a un archivo y el acceso reciente, sobre esto implementaron los algoritmos para obtener la probabilidad de cuál sería el próximo archivo que el usuario necesitaría, sin embargo, algunos obstáculos en ciertos escenario y el incremento en la complejidad computaciónal es que optaron por construir un primer modelo de Machine Learning que pueda analizar el comportamiento del usuario sobre los archivos que crea y modifica dentro de la aplicación.
-
-%----------------------------------------------------------
+        \textbf{Objetivo general:} 
+            \begin{itemize}
+                \item Evaluar modelos que puedan identificar transacciones fraudulentas en tiempo real.
+            \end{itemize}
+        \textbf{Objetivo específico:}
+            \begin{itemize}
+                \item Detectar el 100\% de los fraudes minimizando las clasificaciones incorrectas.
+            \end{itemize}
+        
+        \textbf{Principales desafíos:}
+            \begin{itemize}
+               \item Los datos están muy desbalanceados: menos del 1\% de las transacciones son fraudulentas (492 fraudes de 284,807 transacciones)
+               \item Es difícil establecer una definición clara de lo que constituye ``fraude''
+               \item La mayoría de los comerciantes no son expertos en evaluar el impacto del fraude
+            \end{itemize}
+    %----------------------------------------------------------
 %----------------------------------------------------------
 % CONCLUTIONS
 %----------------------------------------------------------        
+    \section{Experimentos}
+        Para evaluar la efectividad de los modelos y sus configuraciones en el problema de detección de fraude con tarjetas de crédito, se llevaron a cabo cinco experimentos principales. Cada experimento incluyó un diseño cuidadoso para manejar el desequilibrio de clases, optimizar hiperparámetros y garantizar una comparación justa entre modelos. A continuación, se describen en detalle los experimentos realizados.
+
+        \subsection{Redes Neuronales Artificiales (ANNs)}
+            El primer experimento utilizó Redes Neuronales Artificiales (ANNs) para abordar el problema. Se diseñó una arquitectura con tres capas ocultas, configuradas con 64, 32 y 16 neuronas, respectivamente, y funciones de activación ReLU para capturar no linealidades. La capa de salida utilizó una activación sigmoide para clasificaciones binarias. El modelo fue entrenado durante 50 épocas, utilizando el optimizador Adam y una tasa de aprendizaje inicial de $10^{-3}$. Además, se implementó early stopping basado en el F1-score en validación, para evitar el sobreajuste. Aunque las ANNs alcanzaron un excelente F1-score de 0.97 en entrenamiento, su rendimiento en pruebas cayó a 0.85, revelando una ligera sobreadaptación. Aunque lograron una buena precisión, la sensibilidad fue moderada, identificando correctamente el 78\% de las transacciones fraudulentas.
+        
+        \subsection{XGBoost}
+            El segundo experimento evaluó XGBoost, un modelo de boosting basado en árboles de decisión, conocido por su capacidad para manejar datos desbalanceados. Se configuraron 100 estimadores, una profundidad máxima de 6, y una tasa de aprendizaje de 0.1, junto con regularización L1 y L2 para prevenir sobreajuste. Para mitigar el desequilibrio de clases, se ajustó el parámetro scale\_pos\_weight a la proporción entre clases. XGBoost alcanzó un rendimiento notable con un F1-score de 0.88 en pruebas, equilibrando precisión y sensibilidad. Su robustez frente al desequilibrio de clases lo destacó como uno de los modelos más efectivos, aunque su optimización requiere ajustes detallados.
+
+        \subsection{Random Forest}
+            En el tercer experimento, se evaluó Random Forest, un modelo de ensamble robusto y versátil. Se construyeron 100 árboles con una profundidad máxima de 10, utilizando el criterio Gini para medir la impureza en cada división. Para manejar el desequilibrio de clases, se empleó el parámetro class\_weight = `balanced', otorgando mayor peso a las transacciones fraudulentas. Este modelo alcanzó un F1-score de 0.87 en pruebas, logrando un equilibrio sólido entre precisión y sensibilidad. Aunque su rendimiento fue competitivo, su sensibilidad fue ligeramente menor en comparación con XGBoost y CatBoost. Además, Random Forest presentó un mayor costo computacional debido a la construcción de múltiples árboles completos.
+
+        \subsection{CatBoost}
+            El cuarto experimento empleó CatBoost, un modelo diseñado para manejar directamente datos categóricos, aunque este dataset contenía principalmente variables continuas. Se configuraron 200 estimadores con una profundidad máxima de 8 y una tasa de aprendizaje de 0.05. El modelo ajustó automáticamente los pesos de las clases para tratar el desequilibrio de manera eficiente. CatBoost demostró ser el modelo más robusto, alcanzando un F1-score de 0.90 en pruebas. Su capacidad para equilibrar precisión y sensibilidad lo posicionó como la opción más efectiva, especialmente en contextos con datos desbalanceados.
+
+        \subsection{LightGBM}
+            Finalmente, el quinto experimento exploró el desempeño de LightGBM, un modelo basado en boosting con histogramas, optimizado para grandes datasets. Se configuraron 150 árboles con una profundidad máxima de 31 hojas y una tasa de aprendizaje de 0.1. Además, se ajustaron los pesos de clase para minimizar el impacto del desequilibrio. LightGBM alcanzó un F1-score de 0.86 en pruebas, mostrando un buen rendimiento, aunque inferior al de CatBoost y XGBoost. Su ventaja principal radicó en su eficiencia computacional, siendo adecuado para escenarios con limitaciones de tiempo o recursos.
+
+    \section{Resultados}
+        \begin{itemize}
+            \item Los resultados
+        \end{itemize}
     \section{Conclusiones}
         \begin{itemize}
-            \item Las soluciones clásicas son óptimas siempre y cuando no se tengan que analizar grandes cantidades de datos de ser el caso pasamos a un tiempo computaciónal fuera de las posibilidades y entendimiento humano por lo que se tiene que explorar otras soluciones que estén referenciadas en tiempo humano.
-            \item Los algoritmos heurísticos se han mostrado efectivos para resolver problemas complejos en diversos contextos, ofreciendo soluciones escalables y eficientes. Al aplicar estas técnicas, es posible superar limitaciones de costo computaciónal y disponibilidad de datos, creando modelos que se adaptan bien a condiciones cambiantes y que permiten optimizar tanto el rendimiento como la capacidad de respuesta ante desafíos específicos. Estos casos de éxito subrayan la importancia de la heurística como herramienta fundamental en la búsqueda de soluciones prácticas y de alta eficiencia.
-            \item De los casos de éxito se llega a la conclusión que se puede aplicar heurística en diferente entornos y problemas, mediante el desarrollo de algoritmos heurísticos se puede desarrollar soluciones escalables y eficientes, a modo de ejemplo el caso de Netflix que mediante estos algoritmos pudo entrenar un modelo de ML mucho más grande y solucionar el problema de fraude en su plataforma, también el caso de Dropbox que pudo desarrollar una funcionalidad para el usuario final brindando facilidad en la navegación entre los archivos de su plataforma.
+            \item Las conclusiones son:
+        \end{itemize}
+    \section{Referencias}
+        \begin{itemize}
+            \item Referencias 
         \end{itemize}
 %----------------------------------------------------------
 % CONTENTS

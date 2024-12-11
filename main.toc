@@ -1,15 +1,13 @@
 \babel@toc {english}{}\relax 
-\contentsline {section}{\numberline {1}Resumen}{1}{section.1}%
-\contentsline {section}{\numberline {2}Introducción}{1}{section.2}%
-\contentsline {section}{\numberline {3}Trabajos relacionados}{1}{section.3}%
-\contentsline {section}{\numberline {4}Propuesta}{1}{section.4}%
-\contentsline {section}{\numberline {5}Experimentos}{2}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Redes Neuronales Artificiales (ANNs)}{2}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}XGBoost}{2}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Random Forest}{2}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}CatBoost}{2}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}LightGBM}{2}{subsection.5.5}%
-\contentsline {section}{\numberline {6}Resultados}{2}{section.6}%
-\contentsline {section}{\numberline {7}Conclusiones}{2}{section.7}%
-\contentsline {section}{\numberline {8}Referencias}{2}{section.8}%
+\contentsline {section}{\numberline {1}Introducción}{1}{section.1}%
+\contentsline {section}{\numberline {2}Trabajos relacionados}{1}{section.2}%
+\contentsline {section}{\numberline {3}Propuesta}{1}{section.3}%
+\contentsline {section}{\numberline {4}Experimentos}{2}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Redes Neuronales Artificiales (ANNs)}{2}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}XGBoost}{2}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Random Forest}{2}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}CatBoost}{3}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}LightGBM}{3}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Resultados}{3}{section.5}%
+\contentsline {section}{\numberline {6}Conclusiones}{4}{section.6}%
 \contentsfinish 

@@ -1,13 +1,15 @@
 # Fdb version 4
-["biber main"] 1733887687.56816 "main.bcf" "main.bbl" "main" 1733888352.99507 0
-  "main.bcf" 1733888352.78072 107945 e7ca1dc51e39a62ccfeb1ae66d2c0057 "pdflatex"
+["biber main"] 1733893279.4865 "main.bcf" "main.bbl" "main" 1733893332.19296 0
+  "main.bcf" 1733893331.95477 108527 3c16f5cd7d71805fd83b097dc047d46c "pdflatex"
+  "rho.bib" 1733893019.94565 1174 70ae3cb64c4950b60efeae8da0600d73 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1733888350.98293 "/Users/maxhoustonramirezmartel/code/personales/latex/final/main.tex" "main.pdf" "main" 1733888352.99533 0
-  "/Users/maxhoustonramirezmartel/code/personales/latex/final/main.tex" 1733888350.16972 15601 fe5b2f61e5952b79836a0a8d37eaae06 ""
+["pdflatex"] 1733893329.88246 "/Users/maxhoustonramirezmartel/code/personales/latex/final/main.tex" "main.pdf" "main" 1733893332.19326 0
+  "/Users/maxhoustonramirezmartel/code/personales/latex/final/main.tex" 1733893329.66039 29289 701c421dcb4ebf40b5e6d431cf9dbb5a ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathrm.enc" 1610747736 3159 6cd87b3b51190b4d6117d4c2f083ba2e ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/stix2-type1/stix2-t1.enc" 1610747736 7007 7bfc8f72039f2cce6ca911c3c71db584 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/stix2-type1/stix2-ts1.enc" 1610747736 2923 6a3d03919e8648554154ee58dc078229 ""
@@ -28,6 +30,7 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm" 1246382020 940 75ac932a52f80982a9f8ea75d03a34cf ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1246382020 940 228d6584342e91276bf566bcf9716b83 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr9.tfm" 1136768653 1292 6b21b9c2c7bebb38aa2273f7ca0fb3af ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmtt8.tfm" 1254269338 1380 64228d979098ac090aa3f98d5aa8ad3e ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/stix2-type1/stix2-mathbb.tfm" 1610747736 2024 25cd15ed9165df25e52808dde6ea75e3 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/stix2-type1/stix2-mathbbit.tfm" 1610747736 1544 17abacb700555c9e0760e6eae773459e ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/stix2-type1/stix2-mathcal.tfm" 1610747736 1972 8bb09458ad0b014789d1a574f18bc62d ""
@@ -45,6 +48,7 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/stix2-type1/t1-stix2text.tfm" 1610747736 28540 097ba14dab39294b86bfe4de12d2fe0b ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/stix2-type1/t1-stix2textsc.tfm" 1610747736 28348 81425d9b56ec860c57b0a461ce328cb2 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/stix2-type1/ts1-stix2text.tfm" 1610747736 1460 ab4098db9455eb1e01cadc3c0fc30c5f ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmtt8.pfb" 1255129361 115291 2ae7034c644e971beb573b1e6606f863 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/stix2-type1/STIX2Math.pfb" 1610747736 1095268 889498542f05a309f190bb89c64415e5 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/stix2-type1/STIX2Text-Bold.pfb" 1610747736 537414 936ea934798617b12bdc2368f1bc9ddd ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/stix2-type1/STIX2Text-Italic.pfb" 1610747736 452561 61eccfe7853019df7c3d332e353ab0f8 ""
@@ -261,6 +265,7 @@
   "/usr/local/texlive/2024/texmf-dist/tex/latex/listings/lstlang1.sty" 1708549794 205167 fca232873050cd2da4f9c0c32402c38a ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/listings/lstmisc.sty" 1708549794 77022 5c8c440739265e7ba15b8379ece6ecd7 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/listings/lstpatch.sty" 1708549794 329 f19f5da7234b51d16764e23d20999c73 ""
+  "/usr/local/texlive/2024/texmf-dist/tex/latex/lm/t1lmtt.fd" 1616454256 2682 555da1faa2e266801e4b221d01a42cb5 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/logreq/logreq.def" 1284153563 1620 fb1c32b818f2058eca187e5c41dfae77 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/logreq/logreq.sty" 1284153563 6187 b27afc771af565d3a9ff1ca7d16d0d46 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/mathtools/mathtools.sty" 1710187076 62672 9ff036bc89365461cc2bd482cc1e4879 ""
@@ -329,11 +334,13 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1729824725.5484 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1729824694 8221430 284309eff61862a6035c0a1434040c4f ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "main.aux" 1733888352.77554 4828 ad3b7d8321d811da17da3410a4292ae5 "pdflatex"
-  "main.bbl" 1733887690.09546 466 ee04f40f768daeed26442158e95aba61 "biber main"
-  "main.run.xml" 1733888352.78143 2395 d1d287e5967c0ad996a37ca784536b54 "pdflatex"
-  "main.tex" 1733888350.16972 15601 fe5b2f61e5952b79836a0a8d37eaae06 ""
-  "main.toc" 1733888352.7815 992 bfbb757028af0605f11b2441545975c1 "pdflatex"
+  "figures/resultados.pdf" 1733891640.63413 45582 2794bbff28480e5dc428e4df3158aff2 ""
+  "figures/resultados_ann.pdf" 1733891992.4685 91483 8d220123c4e293ec5b40a48bbbeb9f5d ""
+  "main.aux" 1733893331.94924 6151 509a1cd112fafb6e9f5de0f06bec3836 "pdflatex"
+  "main.bbl" 1733893281.95166 8229 37feae568481936f794dde26584958ca "biber main"
+  "main.run.xml" 1733893331.95553 2395 d1d287e5967c0ad996a37ca784536b54 "pdflatex"
+  "main.tex" 1733893329.66039 29289 701c421dcb4ebf40b5e6d431cf9dbb5a ""
+  "main.toc" 1733893331.9556 862 c353c800d879d2f832ebd3bb9462e0e9 "pdflatex"
   "rho-class/rho.cls" 1733886480.41115 16878 c563e3359389cc92dda0efbb48d0f9d3 ""
   "rho-class/rhobabel.sty" 1733886480.41216 3043 bce4f61aa7159e31b74138540249a313 ""
   "rho-class/rhoenvs.sty" 1733886480.41284 3232 2710b6b553fc2b0389d4c7717dc6bb5a ""

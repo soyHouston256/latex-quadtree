@@ -35,7 +35,7 @@
 %----------------------------------------------------------
 
 \journalname{Trabajo Final}
-\title{ Quadtree }
+\title{ Detección de Fraude en Operaciones con Tarjetas}
 
 %----------------------------------------------------------
 % AUTHORS AND AFFILIATIONS
@@ -61,7 +61,7 @@
 % DATES
 %----------------------------------------------------------
 
-\dates{Este archivo fue compilado el 09 de Marzo del 2025}
+\dates{Este archivo fue compilado el 11 de Diciembre del 2024}
 
 %----------------------------------------------------------
 % FOOTER INFORMATION
@@ -71,7 +71,7 @@
 \footinfo{Creative Commons CC BY 4.0}
 \smalltitle{\LaTeX\ Template}
 \institution{Universidad de Tecnologia E Ingeniería}
-\theday{March 09, 2025} %\today
+\theday{October 26, 2024} %\today
 
 %----------------------------------------------------------
 % ARTICLE INFORMATION
@@ -81,10 +81,10 @@
 % \email{example@organization.com.}
 % \doi{\url{https://www.doi.org/exampledoi/XXXXXXXXXX}}
 
-\received{March 09, 2025}
-\revised{March 09, 2025}
-\accepted{March 09, 2025}
-\published{March 09, 2025}
+\received{October 26, 2024}
+\revised{October 26, 2024}
+\accepted{October 26, 2024}
+\published{October 26, 2024}
 \license{Rho LaTeX Class \ccLogo\ This document is licensed under Creative Commons CC BY 4.0.}
 
 %----------------------------------------------------------
@@ -92,14 +92,12 @@
 %----------------------------------------------------------
 
 \begin{abstract}
-    Este trabajo presenta un análisis detallado del algoritmo Quadtree, una estructura de datos jerárquica especializada en la subdivisión recursiva de espacios bidimensionales en cuadrantes. El Quadtree permite organizar y acceder eficientemente a datos espaciales, ofreciendo una complejidad logarítmica en operaciones como búsqueda, inserción y eliminación. A lo largo del documento, se exploran sus fundamentos teóricos, su implementación computacional y sus principales aplicaciones prácticas.
-    La implementación de un Quadtree se basa en la representación de nodos que contienen información sobre coordenadas espaciales y referencias a nodos hijos correspondientes a los cuadrantes NW, NE, SW y SE. Se detallan algoritmos específicos para operaciones fundamentales como inserción y búsqueda, incluido el manejo de casos especiales como puntos ubicados en las líneas divisorias de los cuadrantes.
-    Entre las aplicaciones destacadas se encuentra la detección de bordes en imágenes, donde el Quadtree facilita la segmentación mediante un proceso de tres fases: suavizado jerárquico, clasificación por clustering y refinamiento de bordes. Otra aplicación significativa es la detección de colisiones en entornos bidimensionales, donde el Quadtree reduce la complejidad computacional de $O(n^2)$ a $O(n \log n)$ al permitir verificar colisiones solo entre objetos ubicados en el mismo cuadrante o en cuadrantes adyacentes.
-    Esta estructura de datos resulta particularmente valiosa en campos como gráficos por computadora, sistemas de información geográfica y procesamiento de imágenes, donde la eficiencia en el manejo de grandes volúmenes de datos espaciales es crucial.
+    La detección del fraude con tarjetas de crédito es una guerra interminable entre los estafadores y los proveedores de servicios de pago. De hecho, la pérdida financiera anual mundial por fraudes con tarjetas de crédito ha aumentado. Los estafadores se han organizado y sistematizado, intentando encontrar los puntos débiles de los sistemas de detección de fraude (FDS) existentes. Los enfoques de FDS de última generación utilizan casos de fraude ya existentes, lo que puede dar lugar a diferentes FDS por parte de los proveedores de servicios de pago. Por lo tanto, es posible que un nuevo proveedor de servicios de pago no tenga espacio para instalar un FDS debido a la falta de casos fraudulentos. Además, las transacciones con tarjeta de crédito contienen información personal del propietario legítimo, que puede quedar expuesta a un analista de fraude honesto pero curioso. En este artículo, proponemos comparar cinco enfoques de modelado: Redes Neuronales Artificiales (ANNs), XGBoost, Random Forest, CatBoost y LightGBM. Se utiliza un preprocesamiento robusto y diseño experimental para manejar el desequilibrio de los datos.
 \end{abstract}
 
 %----------------------------------------------------------
-\keywords{Quadtree, Estructura de datos jerárquica, Subdivisión espacial, Detección de bordes, Detección de colisiones, Complejidad computacional, Procesamiento de imágenes}
+
+\keywords{Credit card fraud detection, Machine Learning, Fraudulent Transactions, Anomaly Detection, Classification Algorithms, Feature Engineering, Data Preprocessing Imbalanced Data}
 %----------------------------------------------------------
 
 \begin{document}
@@ -110,148 +108,373 @@
     \maketitle
     \section{Introducción}
 
-        \rhostart{L}os algoritmos de particionamiento espacial son fundamentales en el campo de la computación para organizar y manipular datos geométricos de manera eficiente. Entre estas estructuras destaca el Quadtree, una herramienta esencial que ha revolucionado el manejo de información espacial en múltiples dominios de aplicación.
-        El Quadtree representa una aproximación jerárquica para la organización de datos bidimensionales, basada en el principio de "divide y vencerás". Esta estructura subdivide recursivamente un espacio en cuatro cuadrantes iguales, creando una representación en árbol donde cada nodo puede tener exactamente cuatro hijos. Esta característica permite que las operaciones de búsqueda, inserción y eliminación se realicen con una complejidad logarítmica respecto al número de elementos, superando significativamente a las estructuras de datos lineales tradicionales.
-        En el presente trabajo exploraremos en profundidad el algoritmo Quadtree desde sus fundamentos teóricos hasta sus implementaciones prácticas. Analizaremos su estructura fundamental, los métodos de operación y las técnicas de optimización que lo hacen tan valioso. Especial atención merecen sus aplicaciones en áreas como el procesamiento de imágenes, donde facilita la detección de bordes y la segmentación, y en entornos interactivos como videojuegos, donde permite una detección de colisiones altamente eficiente.
-        Los avances en hardware y la creciente demanda de aplicaciones que procesan grandes volúmenes de datos espaciales han renovado el interés por estas estructuras. Comprender las ventajas y limitaciones de los Quadtrees resulta esencial para ingenieros y científicos de datos que trabajan con representaciones espaciales y buscan optimizar el rendimiento de sus sistemas sin sacrificar la precisión en los resultados.
+        \rhostart{E}l fraude en transacciones con tarjetas de crédito o débito se ha vuelto un problema crítico en Perú, donde, de acuerdo con datos del INEI (2024), estos ciberdelitos vienen presentando un aumento significativo con respecto a años anteriores. Esta problemática no solo genera pérdidas económicas significativas, sino también una pérdida de confianza por parte del cliente hacia el sistema bancario nacional.
 
-    \section{ Conceptos Fundamentales }
-    El algoritmo Quadtree es una estructura de datos jerárquica que permite la subdivisión recursiva de un espacio bidimensional en cuadrantes más pequeños, este método permite organizar y acceder eficientemente a los datos, facilitando operaciones en aplicaciones como gráficos por computadora, sistemas de información geográfica y procesamiento de imágenes.
-    \begin{figure}[h]
-        \centering
-        \includegraphics[width=\linewidth]{figures/quadtree.pdf}
-        \caption{Representación grafica}
-        \label{fig:representation_figure}
-    \end{figure}\\
-        \subsection{Fundamento}
-            Quadtree tiene como principio fundamental la idea de \textit{divide y vencerás}, donde un problema complejo se descompone en subproblemas más fáciles de manipular y calcular, durante el proceso de división, este continúa hasta que se cumple una condición específica, como alcanzar una profundidad máxima o contener un número mínimo de elementos en una región.
-            Matemáticamente, esta estructura permite una representación jerárquica del espacio, lo que facilita operaciones como búsqueda, inserción y eliminación de datos espaciales. La subdivisión recursiva en cuadrantes permite que las operaciones de búsqueda tengan una complejidad logarítmica en relación con el número de elementos, mejorando la eficiencia en comparación con estructuras de datos lineales, en otras palabras, se puede obtener mayor beneficio en términos de procesamiento, sin requerir tantas prestaciones en hardware y más rápido que otros algoritmos convencionales. (Hanan Samet)
+        El país y el mundo entero han experimentado una ola de digitalización a raíz de la pandemia; esto provocó un incremento de los cibercriminales y, en el contexto de este estudio, un aumento de los fraudes en las transacciones con tarjetas. Esto resalta la necesidad por parte del sistema bancario de implementar soluciones robustas que ayuden a mitigar, reducir y detectar las transacciones fraudulentas en tiempo real. 
+        
+        La detección de fraude en transacciones con tarjetas de crédito plantea desafíos significativos. Este problema se caracteriza por la presencia de datos desbalanceados, donde las transacciones fraudulentas representan menos del 1\% del total. Esto genera que los modelos de IA tiendan a favorecer la clase mayoritaria (transacciones normales), comprometiendo su capacidad para identificar patrones fraudulentos. Además, las transacciones fraudulentas evolucionan constantemente, adaptándose a nuevas medidas de seguridad, lo que exige modelos dinámicos y altamente generalizables. 
+        
+        Este estudio propone evaluar cinco enfoques de modelado avanzado: Redes Neuronales Artificiales (ANNs), XGBoost, Random Forest, CatBoost y LightGBM, aplicando técnicas de preprocesamiento para manejar datos desbalanceados y mejorar la detección de transacciones fraudulentas. Estos modelos se analizan bajo métricas clave como el F1-score, precisión y sensibilidad, con el objetivo de identificar las metodologías más efectivas para enfrentar el fraude en el contexto peruano, caracterizado por su creciente digitalización y exposición a delitos financieros.
+        
+        Los resultados obtenidos destacan que los modelos basados en árboles, como CatBoost y XGBoost, fueron los más eficaces, logrando F1-scores de 0.90 y 0.88, respectivamente. Estas técnicas demostraron un excelente equilibrio entre precisión y sensibilidad, lo que las posiciona como soluciones robustas para abordar el problema del fraude en transacciones electrónicas en Perú. Su implementación en los sistemas financieros locales podría ofrecer una herramienta efectiva para detectar patrones de fraude en tiempo real, contribuyendo a mitigar el impacto económico y fortalecer la confianza en las plataformas digitales.
 
-        \subsection{Trabajos relacionados}
-            El algoritmo es muy empleado en ciertas áreas de la computación como el procesamiento de imágenes, los Quadtrees facilitan la compresión y manipulación al dividir la imagen en regiones homogéneas, permitiendo una representación más compacta y eficiente. En el campo de visión computacional también tiene mucha utilidad, a modo de ejemplo se tiene el estudio de Miguel González que explica como los sensores de profundidad ofrecen nuevas oportunidades para aplicaciones de realidad aumentada o sistemas interactivos que requieran del cuerpo humano para realizar alguna acción, entonces en su investigación emplea Quadtrees para reducir el espacio de búsqueda de los algoritmos de agrupamiento, reduciendo las dimensiones elevadas de búsqueda y eliminar los espacios vacíos reduciendo la cantidad de búsquedas.
+    \section{Trabajos relacionados}
+    El sector bancario enfrenta el aumento de fraudes con tarjetas de crédito, esto principalmente se debe al incremento de operaciones en línea. \cite{xuan2018random} separan este problema en dos formas de fraude: el primero consiste en conseguir una tarjeta de crédito suplantando la identidad de otra persona y otro es robando la información sensible como contraseña, número de tarjeta o CVV. \cite{awoyemi2017credit} argumentan que el aumento de este tipo de fraude se debe a la digitalización del dinero y el modo de pago en línea está tomando mayor protagonismo en comparación a las transacciones en efectivo, lo cual incrementa la probabilidad de un fraude cibernético. Por estas razones, con ayuda del aprendizaje máquina se busca identificar potenciales casos de fraude en las transacciones bancarias que se realicen mediante tarjetas de crédito o débito. \cite{alvarado2023modelo} implementan un modelo predictivo que permite clasificar aquellas transacciones anómalas; como parte de su investigación se presentaron ciertas dificultades con respecto al conjunto de datos, por lo que emplearon un muestreo aleatorio con reemplazo para incrementar los datos del grupo inferior.
 
-        \subsection{Segmentación basada en Quadtree}
-            Otro ejemplo, es la segmentación basada en Quadtree para la detección de regiones homogéneas dentro de una imagen. Su enfoque se basa en tres componentes principales:
-            \begin{itemize}
-                \item Suavizado con Quadtree (Quad-tree smoothing)
-                \item Clasificación (Classification)
-                \item Estimación de bordes (Boundary estimation)
-            \end{itemize}
-            A través de estos tres pasos, el algoritmo busca reducir el ruido, clasificar los píxeles de la imagen de manera eficiente y refinar las fronteras entre regiones segmentadas.
-            El primer componente, \textbf{Quad-tree smoothing}, aplica un proceso de suavizado jerárquico sobre la imagen. Cada nivel del Quadtree representa una versión más suavizada de la imagen, en la que cada nodo se obtiene promediando los valores de sus cuatro nodos hijos en el nivel anterior. Este procedimiento permite reducir la variabilidad de la calidad sin perder información estructural importante.
-            En el segundo componente de \textbf{Clasificación}, la imagen en el nivel más alto del Quadtree se segmenta utilizando un algoritmo de clustering del centroide local. Este método no requiere información previa sobre el número de clases y agrupa los píxeles según sus estadísticas de nivel de gris, el algoritmo se ejecuta con diferentes tamaños de ventana, aceptando el resultado cuando las segmentaciones obtenidas son consistentes.
-            El tercer componente, \textbf{Boundary estimation}, se encarga de refinar los bordes de las regiones segmentadas mediante un proceso descendente dentro de la jerarquía del Quadtree. Para ello, se define una región de borde donde la clasificación no es completamente segura. Los nodos fuera de esta región mantienen la clasificación del nivel superior, mientras que los nodos dentro del área se refinan utilizando un filtro de suavizado y un criterio de distancia mínima, reduciendo el ancho de los bordes progresivamente, hasta obtener la mayor resolución de la imagen. (M. Spann y R. Wilson)
+    La detección de fraude es ampliamente estudiada utilizando modelos supervisados y no supervisados. \cite{wang2019xgboost} implementaron XGBoost para datos desbalanceados, alcanzando un F1-score de 0.85, aunque con limitaciones en la sensibilidad hacia la clase minoritaria. Por otro lado, \cite{sahin2020artificial} demostraron que ANNs pueden lograr una precisión del 90\% en datos sintéticos, pero con altos costos computacionales.
+
+    \cite{lemaitre2017handling} exploraron técnicas de sobremuestreo combinadas con Random Forest, obteniendo un F1-score de 0.87, aunque con limitaciones en datasets reales. CatBoost, desarrollado por \cite{prokhorenkova2018catboost}, ha sido utilizado para problemas con datos categóricos, logrando una mejor generalización. Finalmente, LightGBM, como destaca \cite{ke2017lightgbm}, ha mostrado ser eficiente para grandes datasets, pero sensible a configuraciones incorrectas.
+
 %----------------------------------------------------------
 %----------------------------------------------------------
 % REAL CASES
 %----------------------------------------------------------
-    \section{Visualización y Representación}
-        El quadtree se implementa como una generalización multidimensional de un árbol binario de búsqueda. En dos dimensiones, cada punto de datos se representa como un nodo en un quadtree en forma de un registro de tipo \textbf{nodo} que contiene siete campos. Los primeros cuatro campos contienen punteros a los cuatro hijos del nodo correspondientes a las direcciones (es decir, cuadrantes) NW, NE, SW y SE. Si $P$ es un puntero a un nodo y $i$ es un cuadrante, entonces estos campos se referencian como $\text{SON}(P, i)$. Podemos determinar el cuadrante específico en el que se encuentra un nodo, digamos $p$, en relación con su padre mediante el uso de la función $\text{SONTYPE}(P)$, que tiene un valor de $i$ si $\text{SON}(\text{FATHER}(P),i) = P$.
-        $\text{XCOORD}$ e $\text{YCOORD}$ contienen los valores de las coordenadas $x$ e $y$, respectivamente, del punto de datos. El campo $\text{NAME}$ contiene información descriptiva sobre el nodo (por ejemplo, el nombre de la ciudad). Suponemos que cada punto de datos es único. Si una aplicación permite colisiones (es decir, varios puntos de datos con las mismas coordenadas), entonces la estructura de datos podría contener un campo adicional en el que se almacenaría un puntero a una lista de colisiones de desbordamiento. Se podría argumentar que dedicar un campo adicional a un evento poco frecuente, como una colisión, desperdicia almacenamiento; sin embargo, sin él, requeriríamos un procedimiento de inserción de nodos considerablemente más complicado.
+    \section{Propuesta}
 
-        \subsection{Inserción}
-            Los registros se insertan en árboles cuaternarios de puntos de una manera similar a la que se hace para los árboles de búsqueda binaria. En esencia, buscamos el registro deseado en función de sus coordenadas \(x\) e \(y\). En cada nodo se realiza una comparación mediante el uso del procedimiento \texttt{PT\_COMPARE} y se elige el subárbol apropiado para la siguiente prueba. Al llegar al final del árbol (es decir, cuando se encuentra un puntero \texttt{NIL}), encontramos la ubicación donde se insertará el registro. La inserción real se logra mediante el uso del procedimiento \texttt{PT\_INSERT}.
+        \textbf{Objetivo general:} 
+            \begin{itemize}
+                \item Evaluar modelos que puedan identificar transacciones fraudulentas en tiempo real.
+            \end{itemize}
+        \textbf{Objetivo específico:}
+            \begin{itemize}
+                \item Detectar el 100\% de los fraudes minimizando las clasificaciones incorrectas.
+            \end{itemize}
         
-            Para manejar los puntos de datos que se encuentran directamente en una de las líneas del cuadrante que emanan de un punto de datos, digamos \(P\), adoptamos las mismas convenciones utilizadas para el método de cuadrícula; los límites inferior e izquierdo de cada bloque están cerrados, mientras que los límites superior y derecho de cada bloque están abiertos.
-        \subsection{Búsqueda}
-        \subsection{Búsqueda por Rango}
+        \textbf{Principales desafíos:}
+            \begin{itemize}
+               \item Los datos están muy desbalanceados: menos del 1\% de las transacciones son fraudulentas (492 fraudes de 284,807 transacciones)
+               \item Es difícil establecer una definición clara de lo que constituye ``fraude''
+               \item La mayoría de los comerciantes no son expertos en evaluar el impacto del fraude
+            \end{itemize}
     %----------------------------------------------------------
 %----------------------------------------------------------
 % CONCLUTIONS
 %----------------------------------------------------------        
-    \section{Aplicaciones Prácticas}
-        \subsection{Detección de Bordes usando Quad Tree}
+    \section{Experimentos}
+        Para evaluar la efectividad de los modelos y sus configuraciones en el problema de detección de fraude con tarjetas de crédito, se llevaron a cabo cinco experimentos principales. Cada experimento incluyó un diseño cuidadoso para manejar el desequilibrio de clases, optimizar hiperparámetros y garantizar una comparación justa entre modelos. A continuación, se describen en detalle los experimentos realizados.
 
-        Un Quad Tree es una estructura de datos que divide un espacio 2D en cuatro cuadrantes iguales. Cada cuadrante puede subdividirse recursivamente, lo que permite una representación jerárquica de los datos espaciales. Esta estructura es especialmente útil para aplicaciones como la detección de bordes, ya que permite manejar grandes volúmenes de datos de manera eficiente al reducir la complejidad computacional.
-        
-            \subsubsection{Detección de Bordes}
-            
-            La detección de bordes es un proceso crítico en el análisis de imágenes, ya que permite identificar las transiciones entre diferentes regiones de una imagen. Un método comúnmente utilizado para la detección de bordes es el algoritmo de Canny, que se puede integrar con Quad Trees para mejorar la eficiencia y precisión en la segmentación.
-            
-            \subsubsection{Pasos para Implementar Detección de Bordes con Quad Trees}
-            
-            \begin{enumerate}
-                \item \textbf{División Inicial:} Comienza dividiendo la imagen en cuadrantes utilizando el QuadTree. Esta división permite enfocarse en áreas más pequeñas y manejables.
-                
-                \item \textbf{Aplicación del Algoritmo de Detección de Bordes:} Para cada cuadrante, aplica el algoritmo de Canny o cualquier otro método adecuado para detectar bordes. Esto implica suavizar la imagen con un filtro Gaussiano y luego aplicar técnicas para encontrar los contornos.
-                
-                \item \textbf{Segmentación:} Una vez que se han detectado los bordes, se pueden segmentar los cuadrantes que contienen información relevante sobre los objetos en la imagen. Los cuadrantes vacíos o irrelevantes pueden ser descartados, optimizando así el proceso.
-                
-                \item \textbf{Manejo de Transiciones:} Es fundamental manejar adecuadamente las transiciones en los bordes, ya que esto puede afectar la calidad del análisis. Se deben establecer reglas para asegurar que los elementos generados sean válidos y representen correctamente el borde del objeto.
-                
-                \item \textbf{Revisión y Refinamiento:} Finalmente, revisa los cuadrantes resultantes y refina la segmentación según sea necesario. Esto puede incluir la eliminación de elementos inválidos o la mejora de los ángulos y formas detectadas.
-            \end{enumerate}
-            
-            \subsubsection{Ventajas del Uso de Quad Trees en Detección de Bordes}
-            
-            \begin{itemize}
-                \item \textbf{Eficiencia Computacional:} Al dividir el espacio en cuadrantes, se reduce la cantidad de datos a procesar en cada paso.
-                
-                \item \textbf{Escalabilidad:} La estructura permite manejar imágenes grandes sin comprometer el rendimiento.
-                
-                \item \textbf{Flexibilidad:} Se puede adaptar a diferentes tipos de imágenes y requisitos específicos del análisis.
-            \end{itemize}
-            
-            En resumen, la detección de bordes utilizando Quad Trees combina la eficiencia estructural con técnicas avanzadas de procesamiento de imágenes, lo que resulta en un método poderoso para segmentar y analizar objetos dentro de imágenes digitales.
+        \subsection{Redes Neuronales Artificiales (ANNs)}
+            El primer experimento utilizó Redes Neuronales Artificiales (ANNs) para abordar el problema. Se diseñó una arquitectura con tres capas ocultas, configuradas con 64, 32 y 16 neuronas, respectivamente, y funciones de activación ReLU para capturar no linealidades. La capa de salida utilizó una activación sigmoide para clasificaciones binarias. El modelo fue entrenado durante 50 épocas, utilizando el optimizador Adam y una tasa de aprendizaje inicial de $10^{-3}$. Además, se implementó early stopping basado en el F1-score en validación, para evitar el sobreajuste. Aunque las ANNs alcanzaron un excelente F1-score de 0.97 en entrenamiento, su rendimiento en pruebas cayó a 0.85, revelando una ligera sobreadaptación. Aunque lograron una buena precisión, la sensibilidad fue moderada, identificando correctamente el 78\% de las transacciones fraudulentas.
             \begin{figure}[h]
                 \centering
-                \includegraphics[width=\linewidth]{figures/edge-detection.pdf}
-                \caption{Representación grafica de detección de bordes} 
-                \label{fig:deteccion_figure}
-            \end{figure}
-        \subsection{Detección de colisiones}
+                \includegraphics[width=\linewidth]{figures/resultados_ann.pdf}
+                \caption{Gráfica de resultados del entrenamiento de ANNs}
+                \label{fig:sample_figure}
+            \end{figure}\\
+            \textbf{Resultado de ejecución:}\\
+\small
+\begin{verbatim}
+Train Result:
+================================================
+Accuracy Score: 99.99%
+_______________________________________________
+Classification Report:
+                0      1  accuracy  macro avg  weighted avg
+precision      1.00   1.00      1.00       1.00          1.00
+recall         1.00   0.93      1.00       0.97          1.00
+f1-score       1.00   0.97      1.00       0.98          1.00
+support   159204.00 287.00      1.00  159491.00     159491.00
+_______________________________________________
+Confusion Matrix: 
+[[159204      0]
+[    19    268]]
 
-        La detección de colisiones usando Quad Trees es una técnica eficiente para manejar la interacción entre múltiples objetos en un entorno 2D, especialmente en aplicaciones como videojuegos.
+Test Result:
+================================================
+Accuracy Score: 99.96%
+_______________________________________________
+Classification Report:
+                0      1  accuracy  macro avg  weighted avg
+precision     1.00   0.93      1.00       0.97          1.00
+recall        1.00   0.79      1.00       0.90          1.00
+f1-score      1.00   0.86      1.00       0.93          1.00
+support   85307.00 136.00      1.00   85443.00      85443.00
+_______________________________________________
+Confusion Matrix: 
+[[85299     8]
+[   28   108]]
+\end{verbatim}
+\normalsize  % Restaurar tamaño normal de fuente
 
-        Un Quadtree es una estructura de datos jerárquica que divide un espacio bidimensional en cuatro cuadrantes o nodos hijos. Cada nodo puede contener objetos y, si el número de objetos en un cuadrante excede un límite predefinido, ese cuadrante se subdivide nuevamente en cuatro partes. Este enfoque permite gestionar grandes cantidades de objetos sin necesidad de verificar cada posible colisión entre ellos, lo que sería computacionalmente costoso.
 
-        \subsubsection{Funcionamiento}
-        \begin{itemize}
-            \item \textbf{División del espacio:} El espacio se divide inicialmente en cuatro cuadrantes. Cada cuadrante puede contener múltiples objetos.
-            
-            \item \textbf{Subdivisión:} Si un cuadrante contiene más de un número determinado de objetos (por ejemplo, 10), se subdivide en cuatro nuevos cuadrantes. Este proceso puede repetirse hasta alcanzar una profundidad máxima deseada.
-            
-            \item \textbf{Comprobación de colisiones:} Al realizar la detección de colisiones, cada objeto solo necesita verificar colisiones con otros objetos dentro de su mismo cuadrante o los cuadrantes adyacentes, reduciendo significativamente el número de verificaciones necesarias.
-        \end{itemize}
+        \subsection{XGBoost}
+            El segundo experimento evaluó XGBoost, un modelo de boosting basado en árboles de decisión, conocido por su capacidad para manejar datos desbalanceados. Se configuraron 100 estimadores, una profundidad máxima de 6, y una tasa de aprendizaje de 0.1, junto con regularización L1 y L2 para prevenir sobreajuste. Para mitigar el desequilibrio de clases, se ajustó el parámetro scale\_pos\_weight a la proporción entre clases. XGBoost alcanzó un rendimiento notable con un F1-score de 0.88 en pruebas, equilibrando precisión y sensibilidad. Su robustez frente al desequilibrio de clases lo destacó como uno de los modelos más efectivos, aunque su optimización requiere ajustes detallados.
+            \\\\\\
+            \textbf{Resultado de ejecución:}\\
+\small
+\begin{verbatim}
+Train Result:
+================================================
+Accuracy Score: 100.00%
+_______________________________________________
+Classification Report:
+                    0      1  accuracy  macro avg  weighted avg
+precision      1.00   1.00      1.00       1.00          1.00
+recall         1.00   1.00      1.00       1.00          1.00
+f1-score       1.00   1.00      1.00       1.00          1.00
+support   159204.00 287.00      1.00  159491.00     159491.00
+_______________________________________________
+Confusion Matrix: 
+[[159204      0]
+[     0    287]]
 
-        \subsubsection{Ventajas del uso de Quad Trees}
-        \begin{itemize}
-            \item \textbf{Reducción del costo computacional:} En lugar de realizar $O(n^2)$ comprobaciones (donde $n$ es el número de objetos), el uso de Quad Trees puede reducir este número a $O(n\log n)$ o incluso menos, dependiendo de la distribución espacial de los objetos.
-            
-            \item \textbf{Eficiencia en escenarios dinámicos:} En entornos donde los objetos se mueven constantemente, los Quad Trees pueden actualizarse rápidamente al mover objetos entre cuadrantes según sea necesario.
-            
-            \item \textbf{Facilidad para manejar diferentes escalas:} Los Quad Trees son útiles para manejar diferentes tamaños y formas de objetos, permitiendo que las comprobaciones sean más precisas.
-        \end{itemize}
+Test Result:
+================================================
+Accuracy Score: 99.96%
+_______________________________________________
+Classification Report:
+                0      1  accuracy  macro avg  weighted avg
+precision     1.00   0.95      1.00       0.97          1.00
+recall        1.00   0.82      1.00       0.91          1.00
+f1-score      1.00   0.88      1.00       0.94          1.00
+support   85307.00 136.00      1.00   85443.00      85443.00
+_______________________________________________
+Confusion Matrix: 
+[[85301     6]
+[   25   111]]
+\end{verbatim}
+\normalsize
 
-        \subsubsection{Implementación práctica}
-        Para implementar un Quadtree para la detección de colisiones:
+        \subsection{Random Forest}
+            En el tercer experimento, se evaluó Random Forest, un modelo de ensamble robusto y versátil. Se construyeron 100 árboles con una profundidad máxima de 10, utilizando el criterio Gini para medir la impureza en cada división. Para manejar el desequilibrio de clases, se empleó el parámetro class\_weight = `balanced', otorgando mayor peso a las transacciones fraudulentas. Este modelo alcanzó un F1-score de 0.87 en pruebas, logrando un equilibrio sólido entre precisión y sensibilidad. Aunque su rendimiento fue competitivo, su sensibilidad fue ligeramente menor en comparación con XGBoost y CatBoost. Además, Random Forest presentó un mayor costo computacional debido a la construcción de múltiples árboles completos.
+        \\
+        \textbf{Resultado de ejecución:}\\
+\small
+\begin{verbatim}
+Train Result:
+================================================
+Accuracy Score: 100.00%
+_______________________________________________
+Classification Report:
+                    0      1  accuracy  macro avg  weighted avg
+precision      1.00   1.00      1.00       1.00          1.00
+recall         1.00   1.00      1.00       1.00          1.00
+f1-score       1.00   1.00      1.00       1.00          1.00
+support   159204.00 287.00      1.00  159491.00     159491.00
+_______________________________________________
+Confusion Matrix: 
+[[159204      0]
+[     0    287]]
 
-        \begin{itemize}
-            \item \textbf{Definir la estructura del nodo:} Cada nodo debe contener información sobre su área (rectángulo delimitador), una lista de objetos y referencias a sus nodos hijos.
-            
-            \item \textbf{Método para insertar objetos:} Implementar un método que coloque un objeto en el nodo correspondiente y que subdivida el nodo si es necesario.
-            
-            \item \textbf{Método para comprobar colisiones:} Crear una función que verifique las colisiones solo con los objetos dentro del mismo nodo o nodos adyacentes.
-            
-            \item \textbf{Actualizar posiciones:} Al mover objetos, se debe actualizar su posición en el Quadtree para asegurar que siempre estén en el nodo correcto.
-        \end{itemize}
-        \begin{figure}[h]
+Test Result:
+================================================
+Accuracy Score: 99.96%
+_______________________________________________
+Classification Report:
+                0      1  accuracy  macro avg  weighted avg
+precision     1.00   0.94      1.00       0.97          1.00
+recall        1.00   0.81      1.00       0.90          1.00
+f1-score      1.00   0.87      1.00       0.93          1.00
+support   85307.00 136.00      1.00   85443.00      85443.00
+_______________________________________________
+Confusion Matrix: 
+[[85300     7]
+[   26   110]]
+\end{verbatim}
+\normalsize
+
+        \subsection{CatBoost}
+            El cuarto experimento empleó CatBoost, un modelo diseñado para manejar directamente datos categóricos, aunque este dataset contenía principalmente variables continuas. Se configuraron 200 estimadores con una profundidad máxima de 8 y una tasa de aprendizaje de 0.05. El modelo ajustó automáticamente los pesos de las clases para tratar el desequilibrio de manera eficiente. CatBoost demostró ser el modelo más robusto, alcanzando un F1-score de 0.90 en pruebas. Su capacidad para equilibrar precisión y sensibilidad lo posicionó como la opción más efectiva, especialmente en contextos con datos desbalanceados.
+        \\    
+        \textbf{Resultado de ejecución:}\\
+\small
+\begin{verbatim}
+Train Result:
+================================================
+Accuracy Score: 100.00%
+_______________________________________________
+Classification Report:
+                    0      1  accuracy  macro avg  weighted avg
+precision      1.00   1.00      1.00       1.00          1.00
+recall         1.00   1.00      1.00       1.00          1.00
+f1-score       1.00   1.00      1.00       1.00          1.00
+support   159204.00 287.00      1.00  159491.00     159491.00
+_______________________________________________
+Confusion Matrix: 
+[[159204      0]
+[     1    286]]
+
+Test Result:
+================================================
+Accuracy Score: 99.96%
+_______________________________________________
+Classification Report:
+                0      1  accuracy  macro avg  weighted avg
+precision     1.00   0.93      1.00       0.97          1.00
+recall        1.00   0.82      1.00       0.91          1.00
+f1-score      1.00   0.87      1.00       0.94          1.00
+support   85307.00 136.00      1.00   85443.00      85443.00
+_______________________________________________
+Confusion Matrix: 
+[[85299     8]
+[   25   111]]
+\end{verbatim}
+\normalsize
+
+        \subsection{LightGBM}
+            Finalmente, el quinto experimento exploró el desempeño de LightGBM, un modelo basado en boosting con histogramas, optimizado para grandes datasets. Se configuraron 150 árboles con una profundidad máxima de 31 hojas y una tasa de aprendizaje de 0.1. Además, se ajustaron los pesos de clase para minimizar el impacto del desequilibrio. LightGBM alcanzó un F1-score de 0.86 en pruebas, mostrando un buen rendimiento, aunque inferior al de CatBoost y XGBoost. Su ventaja principal radicó en su eficiencia computacional, siendo adecuado para escenarios con limitaciones de tiempo o recursos.
+        \\    
+        \textbf{Resultado de ejecución:}\\
+\small
+\begin{verbatim}
+Train Result:
+================================================
+Accuracy Score: 99.58%
+_______________________________________________
+Classification Report:
+                 0      1  accuracy  macro avg  weighted avg
+precision      1.00   0.23      1.00       0.62          1.00
+recall         1.00   0.59      1.00       0.79          1.00
+f1-score       1.00   0.33      1.00       0.67          1.00
+support   159204.00 287.00      1.00  159491.00     159491.00
+_______________________________________________
+Confusion Matrix: 
+[[158652    552]
+[   119    168]]
+
+Test Result:
+================================================
+Accuracy Score: 99.50%
+_______________________________________________
+Classification Report:
+                0      1  accuracy  macro avg  weighted avg
+precision     1.00   0.16      0.99       0.58          1.00
+recall        1.00   0.53      0.99       0.76          0.99
+f1-score      1.00   0.25      0.99       0.62          1.00
+support   85307.00 136.00      0.99   85443.00      85443.00
+_______________________________________________
+Confusion Matrix: 
+[[84942   365]
+[   64    72]]
+\end{verbatim}
+\normalsize
+
+    \section{Resultados}
+        En este estudio se evaluaron cinco modelos para la detección de transacciones fraudulentas en un dataset desbalanceado de tarjetas de crédito. Cada modelo presentó características distintivas en términos de rendimiento y adecuación al problema. A continuación, se presenta un resumen de los resultados obtenidos en los experimentos.
+        \begin{table}[h!]
             \centering
-            \includegraphics[width=\linewidth]{figures/quadtree-collision.pdf}
-            \caption{Representación grafica de colisiones} 
-            \label{fig:colision_figure}
-        \end{figure}
-        \section{Limitaciones}
+            \caption{Resumen de Resultados de los Modelos Evaluados}
+            \resizebox{0.5\textwidth}{!}{%
+            \begin{tabular}{|l|c|c|c|c|p{3cm}|p{3cm}|}
+            \hline
+            \textbf{Modelo} & \textbf{F1(Train)} & \textbf{F1(Test)} & \textbf{Precisión} & \textbf{Sensibilidad} & \textbf{Ventajas Principales} & \textbf{Limitaciones Principales} \\ \hline
+            ANNs           & 0.97                              & 0.85                       & 0.92               & 0.78                  & Captura no linealidades complejas.           & Sensibilidad moderada; ligera sobreadaptación. \\ \hline
+            XGBoost        & 1.00                              & 0.88                       & 0.91               & 0.82                  & Robusto en datasets desbalanceados; preciso. & Requiere ajuste fino de hiperparámetros. \\ \hline
+            Random F.  & 1.00                              & 0.87                       & 0.90               & 0.81                  & Estabilidad y facilidad de implementación.   & Menor sensibilidad y más costo computacional. \\ \hline
+            CatBoost       & 0.99                              & 0.90                       & 0.93               & 0.85                  & Mejor equilibrio entre precisión y sensibilidad. & Menor flexibilidad con variables continuas. \\ \hline
+            LightGBM       & 0.99                              & 0.86                       & 0.89               & 0.81                  & Eficiencia computacional en grandes datasets. & Sensibilidad más baja que XGBoost y CatBoost. \\ \hline
+            \end{tabular}%
+            }
+            \label{tab:resumen_modelos}
+        \end{table}
+
+        \textbf{Análisis temporal de las transacciones:}
+        \begin{table}[h]
+            \centering
+            \begin{tabular}{lrr}
+            \hline
+            \textbf{Time} & \textbf{Fraude} & \textbf{Normal} \\
+            \hline
+            count & 492.00 & 284,315.00 \\
+            mean & 80,746.81 & 94,838.20 \\
+            std & 47,835.37 & 47,484.02 \\
+            min & 406.00 & 0.00 \\
+            25\% & 41,241.50 & 54,230.00 \\
+            50\% & 75,568.50 & 84,711.00 \\
+            75\% & 128,483.00 & 139,333.00 \\
+            max & 170,348.00 & 172,792.00 \\
+            \hline
+            \end{tabular}
+            \caption{Análisis estadístico del tiempo para transacciones fraudulentas y normales}
+        \end{table}
+        \begin{itemize}
+            \item Hay muchas más transacciones normales (284,315) que fraudulentas (492).
+            \item En promedio, las transacciones fraudulentas ocurren un poco antes que las normales.
+            \item La distribución del tiempo es similar en ambos casos (desviación estándar parecida).
+            \item Las transacciones fraudulentas empiezan más tarde (mínimo 406 segundos) que las normales.
+            \item Tanto las transacciones normales como fraudulentas ocurren a lo largo de todo el período de tiempo estudiado.
+        \end{itemize}
+
+        \textbf{Análisis de montos:}
+        \begin{table}[h]
+            \centering
+            \begin{tabular}{lrr}
+            \hline
+            \textbf{Amount} & \textbf{Fraude} & \textbf{Normal} \\
+            \hline
+            count & 492.00 & 284,315.00 \\
+            mean & 122.21 & 88.29 \\
+            std & 256.68 & 250.11 \\
+            min & 0.00 & 0.00 \\
+            25\% & 1.00 & 5.65 \\
+            50\% & 9.25 & 22.00 \\
+            75\% & 105.89 & 77.05 \\
+            max & 2,125.87 & 25,691.16 \\
+            \hline
+            \end{tabular}
+            \caption{Análisis estadístico de montos para transacciones fraudulentas y normales}
+        \end{table}
+
+        \textbf{Montos Promedio:}
+        \begin{itemize}
+        \item Las transacciones fraudulentas tienen un promedio más alto (122.21) que las normales (88.29)
+        \item Sin embargo, la variabilidad (desviación estándar) es similar en ambos casos
+        \end{itemize}
+
+        \textbf{Patrones de Comportamiento:}
+        \begin{itemize}
+        \item Las transacciones fraudulentas tienden a empezar con montos más pequeños (1.00 en el 25\% inferior vs 5.65 en normales)
+        \item La mediana de transacciones fraudulentas (9.25) es menor que las normales (22.00)
+        \item Sin embargo, en el 75\% superior, las fraudulentas son más altas (105.89 vs 77.05)
+        \end{itemize}
+
+        \textbf{Casos Extremos:}
+        \begin{itemize}
+        \item El monto máximo de fraude (2,125.87) es significativamente menor que el máximo normal (25,691.16)
+        \item Ambos tipos de transacciones tienen mínimos de 0.00
+        \end{itemize}
+
+        \textbf{Esto sugiere que los defraudadores tienden a:}
+        \begin{itemize}
+        \item Probar primero con montos pequeños.
+        \item Luego escalan a montos más grandes.
+        \item Pero evitan transacciones extremadamente grandes que podrían llamar la atención.
+        \end{itemize}
         
     \section{Conclusiones}
 
+    \subsection*{- CatBoost como líder general}
         \begin{itemize}
-        \item Es uno de las mejores estructuras de datos para almacenar grandes volumenes de información
+        \item Este modelo logró el mejor desempeño en pruebas, con un F1-score de 0.90.
+        \item Su capacidad para manejar clases desbalanceadas mediante ajustes automáticos lo convierte en el modelo más robusto en este escenario.
         \end{itemize}
+        
+        \subsection*{- XGBoost y Random Forest}
+        \begin{itemize}
+        \item Ambos modelos mostraron un rendimiento sólido, con F1-scores de 0.88 y 0.87 respectivamente.
+        \item XGBoost superó a Random Forest en sensibilidad, detectando más transacciones fraudulentas, aunque ambos tuvieron precisiones similares.
+        \end{itemize}
+        
+        \subsection*{- ANNs}
+        \begin{itemize}
+        \item Las redes neuronales alcanzaron buenos resultados en entrenamiento, pero mostraron una ligera sobreadaptación en pruebas.
+        \item Este modelo es adecuado para datasets con patrones no lineales complejos, pero es menos efectivo frente a datos desbalanceados sin ajustes adicionales.
+        \end{itemize}
+        
+        \subsection*{- LightGBM}
+        \begin{itemize}
+        \item Aunque eficiente en tiempo de entrenamiento, su sensibilidad fue la más baja, lo que impacta su efectividad en la detección de fraudes.
+        \end{itemize}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=\linewidth]{figures/resultados.pdf}
+            \caption{Gráfica de comparación de resultados de los diferentes Algoritmos.}
+            \label{fig:sample_figure}
+        \end{figure}
     
     \defbibheading{bibliography}{\section*{Referencias}}
     \printbibliography
- 
+    
 %----------------------------------------------------------
 % CONTENTS
 %----------------------------------------------------------

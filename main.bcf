@@ -2366,14 +2366,6 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">rho.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1" intorder="1">xuan2018random</bcf:citekey>
-    <bcf:citekey order="2" intorder="1">awoyemi2017credit</bcf:citekey>
-    <bcf:citekey order="3" intorder="1">alvarado2023modelo</bcf:citekey>
-    <bcf:citekey order="4" intorder="1">wang2019xgboost</bcf:citekey>
-    <bcf:citekey order="5" intorder="1">sahin2020artificial</bcf:citekey>
-    <bcf:citekey order="6" intorder="1">lemaitre2017handling</bcf:citekey>
-    <bcf:citekey order="7" intorder="1">prokhorenkova2018catboost</bcf:citekey>
-    <bcf:citekey order="8" intorder="1">ke2017lightgbm</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="ynt">

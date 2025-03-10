@@ -19,189 +19,179 @@
 
 \refsection{0}
   \datalist[entry]{ynt/global//global/global}
-    \entry{awoyemi2017credit}{article}{}
-      \true{moreauthor}
-      \true{morelabelname}
-      \name{author}{1}{}{%
-        {{hash=8e8fc9f08138c4ccf84200361338f739}{%
-           family={Awoyemi},
-           familyi={A\bibinitperiod},
-           given={J.},
-           giveni={J\bibinitperiod}}}%
+    \entry{finkel_bentley_quadtree}{article}{}
+      \name{author}{2}{}{%
+        {{hash=458098e59c20065c4fbc70d8d47adcfc}{%
+           family={Finkel},
+           familyi={F\bibinitperiod},
+           given={R.\bibnamedelimi A.},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=89c13900e5b97003ff22ddea2f201502}{%
+           family={Bentley},
+           familyi={B\bibinitperiod},
+           given={J.\bibnamedelimi L.},
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
       }
-      \strng{namehash}{7984920b666f7d15ed1451784be7d51a}
-      \strng{fullhash}{7984920b666f7d15ed1451784be7d51a}
-      \strng{bibnamehash}{7984920b666f7d15ed1451784be7d51a}
-      \strng{authorbibnamehash}{7984920b666f7d15ed1451784be7d51a}
-      \strng{authornamehash}{7984920b666f7d15ed1451784be7d51a}
-      \strng{authorfullhash}{7984920b666f7d15ed1451784be7d51a}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \strng{namehash}{e1a8c85a410cf8e1a24ef6ca8d40b566}
+      \strng{fullhash}{e1a8c85a410cf8e1a24ef6ca8d40b566}
+      \strng{bibnamehash}{e1a8c85a410cf8e1a24ef6ca8d40b566}
+      \strng{authorbibnamehash}{e1a8c85a410cf8e1a24ef6ca8d40b566}
+      \strng{authornamehash}{e1a8c85a410cf8e1a24ef6ca8d40b566}
+      \strng{authorfullhash}{e1a8c85a410cf8e1a24ef6ca8d40b566}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Credit card fraud detection using Machine Learning Techniques: A Comparative Analysis}
-      \field{year}{2017}
+      \field{journaltitle}{Acta Informatica}
+      \field{number}{1}
+      \field{title}{Quad Trees: A Data Structure for Retrieval on Composite Keys}
+      \field{volume}{4}
+      \field{year}{1974}
+      \field{pages}{1\bibrangedash 9}
+      \range{pages}{9}
     \endentry
-    \entry{ke2017lightgbm}{article}{}
-      \true{moreauthor}
-      \true{morelabelname}
+    \entry{samet_quadtree}{article}{}
       \name{author}{1}{}{%
-        {{hash=bd2a71cb3f5b906b84ee707fda6940ef}{%
-           family={Ke},
-           familyi={K\bibinitperiod},
-           given={G.},
-           giveni={G\bibinitperiod}}}%
-      }
-      \strng{namehash}{c12d55ff422b32f958e2582456b4cf91}
-      \strng{fullhash}{c12d55ff422b32f958e2582456b4cf91}
-      \strng{bibnamehash}{c12d55ff422b32f958e2582456b4cf91}
-      \strng{authorbibnamehash}{c12d55ff422b32f958e2582456b4cf91}
-      \strng{authornamehash}{c12d55ff422b32f958e2582456b4cf91}
-      \strng{authorfullhash}{c12d55ff422b32f958e2582456b4cf91}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{LightGBM: A Highly Efficient Gradient Boosting Decision Tree}
-      \field{year}{2017}
-    \endentry
-    \entry{lemaitre2017handling}{article}{}
-      \true{moreauthor}
-      \true{morelabelname}
-      \name{author}{1}{}{%
-        {{hash=dbb2c00d99cc10fc0e595aa50afe5f8f}{%
-           family={Lemaitre},
-           familyi={L\bibinitperiod},
-           given={G.},
-           giveni={G\bibinitperiod}}}%
-      }
-      \strng{namehash}{61c3a8c117508fd8f4e34fdb036a6231}
-      \strng{fullhash}{61c3a8c117508fd8f4e34fdb036a6231}
-      \strng{bibnamehash}{61c3a8c117508fd8f4e34fdb036a6231}
-      \strng{authorbibnamehash}{61c3a8c117508fd8f4e34fdb036a6231}
-      \strng{authornamehash}{61c3a8c117508fd8f4e34fdb036a6231}
-      \strng{authorfullhash}{61c3a8c117508fd8f4e34fdb036a6231}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Handling Imbalanced Data with Random Forest}
-      \field{year}{2017}
-    \endentry
-    \entry{prokhorenkova2018catboost}{article}{}
-      \true{moreauthor}
-      \true{morelabelname}
-      \name{author}{1}{}{%
-        {{hash=42f620790ac8405ed5aab11f8ff23a98}{%
-           family={Prokhorenkova},
-           familyi={P\bibinitperiod},
-           given={L.},
-           giveni={L\bibinitperiod}}}%
-      }
-      \strng{namehash}{84679d1b13ca38011a8720d1080cbb17}
-      \strng{fullhash}{84679d1b13ca38011a8720d1080cbb17}
-      \strng{bibnamehash}{84679d1b13ca38011a8720d1080cbb17}
-      \strng{authorbibnamehash}{84679d1b13ca38011a8720d1080cbb17}
-      \strng{authornamehash}{84679d1b13ca38011a8720d1080cbb17}
-      \strng{authorfullhash}{84679d1b13ca38011a8720d1080cbb17}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{CatBoost: Gradient Boosting with Categorical Features Support}
-      \field{year}{2018}
-    \endentry
-    \entry{xuan2018random}{article}{}
-      \true{moreauthor}
-      \true{morelabelname}
-      \name{author}{1}{}{%
-        {{hash=c1ae59d5c87de3f07761763d5394ec20}{%
-           family={Xuan},
-           familyi={X\bibinitperiod},
-           given={S.},
-           giveni={S\bibinitperiod}}}%
-      }
-      \strng{namehash}{38fd1a02818654c5576d3afb1a2a846c}
-      \strng{fullhash}{38fd1a02818654c5576d3afb1a2a846c}
-      \strng{bibnamehash}{38fd1a02818654c5576d3afb1a2a846c}
-      \strng{authorbibnamehash}{38fd1a02818654c5576d3afb1a2a846c}
-      \strng{authornamehash}{38fd1a02818654c5576d3afb1a2a846c}
-      \strng{authorfullhash}{38fd1a02818654c5576d3afb1a2a846c}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Random Forest for Credit Card Fraud Detection}
-      \field{year}{2018}
-    \endentry
-    \entry{wang2019xgboost}{article}{}
-      \true{moreauthor}
-      \true{morelabelname}
-      \name{author}{1}{}{%
-        {{hash=61ad10c626e1d641e0b1d7b5f48d3233}{%
-           family={Wang},
-           familyi={W\bibinitperiod},
-           given={Y.},
-           giveni={Y\bibinitperiod}}}%
-      }
-      \strng{namehash}{a173ffd7d2f7a3e749ffa08afcdc6031}
-      \strng{fullhash}{a173ffd7d2f7a3e749ffa08afcdc6031}
-      \strng{bibnamehash}{a173ffd7d2f7a3e749ffa08afcdc6031}
-      \strng{authorbibnamehash}{a173ffd7d2f7a3e749ffa08afcdc6031}
-      \strng{authornamehash}{a173ffd7d2f7a3e749ffa08afcdc6031}
-      \strng{authorfullhash}{a173ffd7d2f7a3e749ffa08afcdc6031}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{XGBoost for Fraud Detection}
-      \field{year}{2019}
-    \endentry
-    \entry{sahin2020artificial}{article}{}
-      \true{moreauthor}
-      \true{morelabelname}
-      \name{author}{1}{}{%
-        {{hash=bbe2f11f7555173873c0593e4b7f29ad}{%
-           family={Sahin},
+        {{hash=78da52600a4b819c3df311320ebf2a24}{%
+           family={Samet},
            familyi={S\bibinitperiod},
-           given={Y.},
-           giveni={Y\bibinitperiod}}}%
+           given={Hanan},
+           giveni={H\bibinitperiod}}}%
       }
-      \strng{namehash}{9ad97e67472230c2767e2de8e945c1e1}
-      \strng{fullhash}{9ad97e67472230c2767e2de8e945c1e1}
-      \strng{bibnamehash}{9ad97e67472230c2767e2de8e945c1e1}
-      \strng{authorbibnamehash}{9ad97e67472230c2767e2de8e945c1e1}
-      \strng{authornamehash}{9ad97e67472230c2767e2de8e945c1e1}
-      \strng{authorfullhash}{9ad97e67472230c2767e2de8e945c1e1}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \strng{namehash}{78da52600a4b819c3df311320ebf2a24}
+      \strng{fullhash}{78da52600a4b819c3df311320ebf2a24}
+      \strng{bibnamehash}{78da52600a4b819c3df311320ebf2a24}
+      \strng{authorbibnamehash}{78da52600a4b819c3df311320ebf2a24}
+      \strng{authornamehash}{78da52600a4b819c3df311320ebf2a24}
+      \strng{authorfullhash}{78da52600a4b819c3df311320ebf2a24}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Artificial Neural Networks in Fraud Analysis}
-      \field{year}{2020}
+      \field{journaltitle}{ACM Computing Surveys}
+      \field{number}{2}
+      \field{title}{The Quadtree and Related Hierarchical Data Structures}
+      \field{volume}{16}
+      \field{year}{1984}
+      \field{pages}{187\bibrangedash 260}
+      \range{pages}{74}
     \endentry
-    \entry{alvarado2023modelo}{article}{}
-      \true{moreauthor}
-      \true{morelabelname}
-      \name{author}{1}{}{%
-        {{hash=f8b9ffe30fa75fc326eb0bad8a843991}{%
-           family={Alvarado},
-           familyi={A\bibinitperiod},
-           given={P.},
-           giveni={P\bibinitperiod}}}%
+    \entry{spann_wilson_quadtree}{article}{}
+      \name{author}{2}{}{%
+        {{hash=a89ec61b82083d5808de8a8564326b3d}{%
+           family={Spann},
+           familyi={S\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=1731ef8fa96b411a7c1ab32d20f8d1c8}{%
+           family={Wilson},
+           familyi={W\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
       }
-      \strng{namehash}{aeba6ee9708c6a886c026cde66c0f445}
-      \strng{fullhash}{aeba6ee9708c6a886c026cde66c0f445}
-      \strng{bibnamehash}{aeba6ee9708c6a886c026cde66c0f445}
-      \strng{authorbibnamehash}{aeba6ee9708c6a886c026cde66c0f445}
-      \strng{authornamehash}{aeba6ee9708c6a886c026cde66c0f445}
-      \strng{authorfullhash}{aeba6ee9708c6a886c026cde66c0f445}
+      \strng{namehash}{97b6399b625ffff2093bc796ed3052dd}
+      \strng{fullhash}{97b6399b625ffff2093bc796ed3052dd}
+      \strng{bibnamehash}{97b6399b625ffff2093bc796ed3052dd}
+      \strng{authorbibnamehash}{97b6399b625ffff2093bc796ed3052dd}
+      \strng{authornamehash}{97b6399b625ffff2093bc796ed3052dd}
+      \strng{authorfullhash}{97b6399b625ffff2093bc796ed3052dd}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Pattern Recognition}
+      \field{number}{3-4}
+      \field{title}{A Quad-Tree Approach to Image Segmentation Which Combines Statistical and Spatial Information}
+      \field{volume}{18}
+      \field{year}{1985}
+      \field{pages}{257\bibrangedash 269}
+      \range{pages}{13}
+    \endentry
+    \entry{samet_spatial_structures}{book}{}
+      \name{author}{1}{}{%
+        {{hash=78da52600a4b819c3df311320ebf2a24}{%
+           family={Samet},
+           familyi={S\bibinitperiod},
+           given={Hanan},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Reading, Massachusetts}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley}%
+      }
+      \strng{namehash}{78da52600a4b819c3df311320ebf2a24}
+      \strng{fullhash}{78da52600a4b819c3df311320ebf2a24}
+      \strng{bibnamehash}{78da52600a4b819c3df311320ebf2a24}
+      \strng{authorbibnamehash}{78da52600a4b819c3df311320ebf2a24}
+      \strng{authornamehash}{78da52600a4b819c3df311320ebf2a24}
+      \strng{authorfullhash}{78da52600a4b819c3df311320ebf2a24}
+      \field{extraname}{2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-201-50255-0}
+      \field{series}{Addison-Wesley Series in Computer Science}
+      \field{title}{The Design and Analysis of Spatial Data Structures}
+      \field{year}{1989}
+    \endentry
+    \entry{mendoza_advances}{book}{}
+      \name{author}{1}{}{%
+        {{hash=f486011cf6c1987fa20a289966746e16}{%
+           family={González\bibnamedelima Mendoza},
+           familyi={G\bibinitperiod\bibinitdelim M\bibinitperiod},
+           given={Miguel},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{f486011cf6c1987fa20a289966746e16}
+      \strng{fullhash}{f486011cf6c1987fa20a289966746e16}
+      \strng{bibnamehash}{f486011cf6c1987fa20a289966746e16}
+      \strng{authorbibnamehash}{f486011cf6c1987fa20a289966746e16}
+      \strng{authornamehash}{f486011cf6c1987fa20a289966746e16}
+      \strng{authorfullhash}{f486011cf6c1987fa20a289966746e16}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Modelo Predictivo de Clasificación de Pagos Fraudulentos para el Área de Prevención del Fraude del Banco de Lima Metropolitana}
-      \field{year}{2023}
+      \field{title}{Advances in Image Processing and Computer Vision}
+      \field{year}{2015}
+    \endentry
+    \entry{amay12_spatialsearch}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=d56d226577e4e585c045135880702ae5}{%
+           family={Amay12},
+           familyi={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {GitHub}%
+      }
+      \strng{namehash}{d56d226577e4e585c045135880702ae5}
+      \strng{fullhash}{d56d226577e4e585c045135880702ae5}
+      \strng{bibnamehash}{d56d226577e4e585c045135880702ae5}
+      \strng{authorbibnamehash}{d56d226577e4e585c045135880702ae5}
+      \strng{authornamehash}{d56d226577e4e585c045135880702ae5}
+      \strng{authorfullhash}{d56d226577e4e585c045135880702ae5}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://github.com/amay12/SpatialSearch}}
+      \field{journaltitle}{GitHub repository}
+      \field{note}{Accessed: March 2025}
+      \field{title}{SpatialSearch: Implementation of spatial data structures for efficient searching}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://github.com/amay12/SpatialSearch
+      \endverb
+      \verb{url}
+      \verb https://github.com/amay12/SpatialSearch
+      \endverb
     \endentry
   \enddatalist
 \endrefsection

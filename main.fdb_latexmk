@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber main"] 0 "main.bcf" "main.bbl" "main" 1741566357.4141 -1
-  "main.bcf" 1741566357.17935 107945 e7ca1dc51e39a62ccfeb1ae66d2c0057 "pdflatex"
-  "rho.bib" 1741552799.12808 1174 70ae3cb64c4950b60efeae8da0600d73 ""
+["biber main"] 0 "main.bcf" "main.bbl" "main" 1741577990.70393 -1
+  "main.bcf" 1741577990.46324 108778 ce5a2d49d7a0980a3b6158a2ab0c32a5 "pdflatex"
+  "rho.bib" 1741577636.19873 1937 eccd36e897fce07054b4bf1006f35ea7 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1741566355.06694 "/Users/maxhoustonramirezmartel/code/personales/latex/qubetree/main.tex" "main.pdf" "main" 1741566357.41438 0
-  "/Users/maxhoustonramirezmartel/code/personales/latex/qubetree/main.tex" 1741566357.1374 28234 6c31f51a0bdf8cb88a35480d1b5df971 ""
+["pdflatex"] 1741577988.23385 "/Users/maxhoustonramirezmartel/code/personales/latex/qubetree/main.tex" "main.pdf" "main" 1741577990.70421 0
+  "/Users/maxhoustonramirezmartel/code/personales/latex/qubetree/main.tex" 1741577987.97802 38432 6bfd29b4233fdb9eb2fa50ed789f31b3 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathcal.enc" 1610747736 3356 2818ff063f8b5d0d850e1203330b9fda ""
@@ -15,6 +15,7 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathrm.enc" 1610747736 3159 6cd87b3b51190b4d6117d4c2f083ba2e ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathsf.enc" 1610747736 3241 7569a3534b3b0a809752019573bbfa29 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/stix2-type1/stix2-t1.enc" 1610747736 7007 7bfc8f72039f2cce6ca911c3c71db584 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/stix2-type1/stix2-t1sc.enc" 1610747736 7017 40d76105290f0e4c158c74ad8614d129 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/stix2-type1/stix2-ts1.enc" 1610747736 2923 6a3d03919e8648554154ee58dc078229 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/adobe/helvetic/phvb8r.tfm" 1136768653 4484 b828043cbd581d289d955903c1339981 ""
@@ -344,14 +345,19 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1729824725.5484 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1729824694 8221430 284309eff61862a6035c0a1434040c4f ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
+  "figures/Insertion.pdf" 1741577058.19709 20312 bf87e30fe7ce3d5eee1acd946ed34c77 ""
+  "figures/Search1.pdf" 1741577458.84543 15138 4ba358cc6cf389b3899af5c2d8244cd0 ""
+  "figures/Search2-density.pdf" 1741577458.85595 16241 3a0b1fee9bcc70a0a0098077a03784c6 ""
   "figures/edge-detection.pdf" 1741558888.94221 38717 a59fe1535d852fb9f21d906f60a8c21a ""
+  "figures/insertion2.pdf" 1741577255.18964 18092 7c14867a578b6634e02b4bc82165c259 ""
+  "figures/quad-tree.pdf" 1741573979.48105 18236 b1a70cf9d6e31682719a43df8a57ae03 ""
   "figures/quadtree-collision.pdf" 1741558984.86546 35899 371151c837116008cc8b8582a766ec38 ""
   "figures/quadtree.pdf" 1741558898.63504 9342 59ca3e2b0adc326b206a8a05ae139fe6 ""
-  "main.aux" 1741566357.17316 11357 8933b1b986eae1b96308d5475c373c58 "pdflatex"
-  "main.bbl" 1741558681.61955 8229 37feae568481936f794dde26584958ca "biber main"
-  "main.run.xml" 1741566357.18007 2395 d1d287e5967c0ad996a37ca784536b54 "pdflatex"
-  "main.tex" 1741566357.1374 28234 6c31f51a0bdf8cb88a35480d1b5df971 ""
-  "main.toc" 1741566357.18015 1861 f2929afb411efc59c10fc456272e8e02 "pdflatex"
+  "main.aux" 1741577990.4566 14686 8a8d9e670f96c70524eb9b6b3b5b23a8 "pdflatex"
+  "main.bbl" 1741577658.02118 7680 388678a8700619089ed56e1b790e4e46 "biber main"
+  "main.run.xml" 1741577990.46402 2395 d1d287e5967c0ad996a37ca784536b54 "pdflatex"
+  "main.tex" 1741577987.97802 38432 6bfd29b4233fdb9eb2fa50ed789f31b3 ""
+  "main.toc" 1741577990.4641 2176 b60347130e08f209288022f267973a19 "pdflatex"
   "rho-class/rho.cls" 1741552799.12702 16878 c563e3359389cc92dda0efbb48d0f9d3 ""
   "rho-class/rhobabel.sty" 1741552799.12762 3043 bce4f61aa7159e31b74138540249a313 ""
   "rho-class/rhoenvs.sty" 1741552799.12785 3232 2710b6b553fc2b0389d4c7717dc6bb5a ""

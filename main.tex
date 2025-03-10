@@ -123,12 +123,18 @@
         \caption{Representación grafica}
         \label{fig:representation_figure}
     \end{figure}\\
-        \subsection{Fundamento}
+        \subsection{Fundamentos}
             Quadtree tiene como principio fundamental la idea de \textit{divide y vencerás}, donde un problema complejo se descompone en subproblemas más fáciles de manipular y calcular, durante el proceso de división, este continúa hasta que se cumple una condición específica, como alcanzar una profundidad máxima o contener un número mínimo de elementos en una región.
-            Matemáticamente, esta estructura permite una representación jerárquica del espacio, lo que facilita operaciones como búsqueda, inserción y eliminación de datos espaciales. La subdivisión recursiva en cuadrantes permite que las operaciones de búsqueda tengan una complejidad logarítmica en relación con el número de elementos, mejorando la eficiencia en comparación con estructuras de datos lineales, en otras palabras, se puede obtener mayor beneficio en términos de procesamiento, sin requerir tantas prestaciones en hardware y más rápido que otros algoritmos convencionales. (Hanan Samet)
-
+            Matemáticamente, esta estructura permite una representación jerárquica del espacio, lo que facilita operaciones como búsqueda, inserción y eliminación de datos espaciales. La subdivisión recursiva en cuadrantes permite que las operaciones de búsqueda tengan una complejidad logarítmica en relación con el número de elementos, mejorando la eficiencia en comparación con estructuras de datos lineales, en otras palabras, se puede obtener mayor beneficio en términos de procesamiento, sin requerir tantas prestaciones en hardware y más rápido que otros algoritmos convencionales. \cite{samet_quadtree}
+            \begin{figure}[h]
+                \centering
+                \includegraphics[width=\linewidth]{figures/quad-tree.pdf}
+                % \caption{Representación grafica}
+                \caption{Representación gráfica de Quadtree \cite{finkel_bentley_quadtree}}
+                \label{fig:representation_figure}
+            \end{figure}\\
         \subsection{Trabajos relacionados}
-            El algoritmo es muy empleado en ciertas áreas de la computación como el procesamiento de imágenes, los Quadtrees facilitan la compresión y manipulación al dividir la imagen en regiones homogéneas, permitiendo una representación más compacta y eficiente. En el campo de visión computacional también tiene mucha utilidad, a modo de ejemplo se tiene el estudio de Miguel González que explica como los sensores de profundidad ofrecen nuevas oportunidades para aplicaciones de realidad aumentada o sistemas interactivos que requieran del cuerpo humano para realizar alguna acción, entonces en su investigación emplea Quadtrees para reducir el espacio de búsqueda de los algoritmos de agrupamiento, reduciendo las dimensiones elevadas de búsqueda y eliminar los espacios vacíos reduciendo la cantidad de búsquedas.
+            El algoritmo es muy empleado en ciertas áreas de la computación como el procesamiento de imágenes, los Quadtrees facilitan la compresión y manipulación al dividir la imagen en regiones homogéneas, permitiendo una representación más compacta y eficiente. En el campo de visión computacional también tiene mucha utilidad, a modo de ejemplo se tiene el estudio de Miguel González Mendoza \cite{mendoza_advances} que explica como los sensores de profundidad ofrecen nuevas oportunidades para aplicaciones de realidad aumentada o sistemas interactivos que requieran del cuerpo humano para realizar alguna acción, entonces en su investigación emplea Quadtrees para reducir el espacio de búsqueda de los algoritmos de agrupamiento, reduciendo las dimensiones elevadas de búsqueda y eliminar los espacios vacíos reduciendo la cantidad de búsquedas.
 
         \subsection{Segmentación basada en Quadtree}
             Otro ejemplo, es la segmentación basada en Quadtree para la detección de regiones homogéneas dentro de una imagen. Su enfoque se basa en tres componentes principales:
@@ -140,7 +146,7 @@
             A través de estos tres pasos, el algoritmo busca reducir el ruido, clasificar los píxeles de la imagen de manera eficiente y refinar las fronteras entre regiones segmentadas.
             El primer componente, \textbf{Quad-tree smoothing}, aplica un proceso de suavizado jerárquico sobre la imagen. Cada nivel del Quadtree representa una versión más suavizada de la imagen, en la que cada nodo se obtiene promediando los valores de sus cuatro nodos hijos en el nivel anterior. Este procedimiento permite reducir la variabilidad de la calidad sin perder información estructural importante.
             En el segundo componente de \textbf{Clasificación}, la imagen en el nivel más alto del Quadtree se segmenta utilizando un algoritmo de clustering del centroide local. Este método no requiere información previa sobre el número de clases y agrupa los píxeles según sus estadísticas de nivel de gris, el algoritmo se ejecuta con diferentes tamaños de ventana, aceptando el resultado cuando las segmentaciones obtenidas son consistentes.
-            El tercer componente, \textbf{Boundary estimation}, se encarga de refinar los bordes de las regiones segmentadas mediante un proceso descendente dentro de la jerarquía del Quadtree. Para ello, se define una región de borde donde la clasificación no es completamente segura. Los nodos fuera de esta región mantienen la clasificación del nivel superior, mientras que los nodos dentro del área se refinan utilizando un filtro de suavizado y un criterio de distancia mínima, reduciendo el ancho de los bordes progresivamente, hasta obtener la mayor resolución de la imagen. (M. Spann y R. Wilson)
+            El tercer componente, \textbf{Boundary estimation}, se encarga de refinar los bordes de las regiones segmentadas mediante un proceso descendente dentro de la jerarquía del Quadtree. Para ello, se define una región de borde donde la clasificación no es completamente segura. Los nodos fuera de esta región mantienen la clasificación del nivel superior, mientras que los nodos dentro del área se refinan utilizando un filtro de suavizado y un criterio de distancia mínima, reduciendo el ancho de los bordes progresivamente, hasta obtener la mayor resolución de la imagen. \cite{spann_wilson_quadtree}
 %----------------------------------------------------------
 %----------------------------------------------------------
 % REAL CASES
@@ -152,7 +158,7 @@
         \subsection{Inserción}
             Los registros se insertan en árboles cuaternarios de puntos de una manera similar a la que se hace para los árboles de búsqueda binaria. En esencia, buscamos el registro deseado en función de sus coordenadas \(x\) e \(y\). En cada nodo se realiza una comparación mediante el uso del procedimiento \texttt{PT\_COMPARE} y se elige el subárbol apropiado para la siguiente prueba. Al llegar al final del árbol (es decir, cuando se encuentra un puntero \texttt{NIL}), encontramos la ubicación donde se insertará el registro. La inserción real se logra mediante el uso del procedimiento \texttt{PT\_INSERT}.
         
-            Para manejar los puntos de datos que se encuentran directamente en una de las líneas del cuadrante que emanan de un punto de datos, digamos \(P\), adoptamos las mismas convenciones utilizadas para el método de cuadrícula; los límites inferior e izquierdo de cada bloque están cerrados, mientras que los límites superior y derecho de cada bloque están abiertos.
+            Para manejar los puntos de datos que se encuentran directamente en una de las líneas del cuadrante que emanan de un punto de datos, digamos \(P\), adoptamos las mismas convenciones utilizadas para el método de cuadrícula; los límites inferior e izquierdo de cada bloque están cerrados, mientras que los límites superior y derecho de cada bloque están abiertos.\cite{samet_spatial_structures}
             \begin{algorithm}
                 \caption{PT\_COMPARE(P, R)}
                 \begin{algorithmic}[1]
@@ -196,6 +202,15 @@
             
             
         \subsection{Búsqueda(punto exacto)}
+            El siguiente algoritmo realiza la búsqueda de un punto exacto dentro de un árbol cuaternario (Quadtree). Dado un nodo raíz y un punto objetivo, la función determina si el punto está presente en la estructura. Tiene como entradas a $Q$: Nodo raíz del Quadtree y a $p$: Punto a buscar en el Quadtree. Como salida: Retorna el valor asociado al punto $p$ si se encuentra en el Quadtree, o Retorna $NULL$ si el punto $p$ no está presente.
+            Internamente en el algoritmo, si el nodo $Q$ es $NULL$, el punto no se encuentra en el Quadtree, por lo que se retorna $NULL$. Si el punto $p$ coincide con la coordenada almacenada en $Q$, se retorna el valor asociado a $Q$. Se determina en qué cuadrante del área delimitada por $Q$ se encuentra $p$: \cite{samet_spatial_structures}
+            \begin{itemize}
+                \item \textbf{Noreste (NE) $\rightarrow$ Se recurre al subárbol $Q.NE$.}
+                \item \textbf{Noroeste (NW) $\rightarrow$ Se recurre al subárbol $Q.NW$.}
+                \item \textbf{Sureste (SE) $\rightarrow$ Se recurre al subárbol $Q.SE$.}
+                \item \textbf{Suroeste (SW) $\rightarrow$ Se recurre al subárbol $Q.SW$.}
+            \end{itemize}
+            Si $p$ no está en ninguno de los subárboles, se retorna $NULL$.
             \begin{algorithm}
                 \caption{SEARCH(Q, p)}
                 \begin{algorithmic}[1]
@@ -230,7 +245,11 @@
                 
                 \end{algorithmic}
             \end{algorithm}
+            \subsubsection{Complejidad Computacional}
+                La complejidad del algoritmo de búsqueda de un punto exacto en un Quadtree balanceado con $N$ puntos es aproximadamente $O(\log N)$, ya que la búsqueda se reduce a un único subárbol en cada nivel. En el peor caso (árbol degenerado), la complejidad puede ser $O(N)$.
         \subsection{Búsqueda por Rango}
+            El siguiente algoritmo realiza una búsqueda de rango en un árbol Quadtree y devuelve todos los puntos dentro de una región rectangular determinada. Tiene como entradas a $Q$: Nodo raíz del árbol cuaternario y a $R$: Región de búsqueda rectangular. Y arroja como salida una lista de puntos dentro de la región $R$.
+            Recorriendo el algoritmo, si $Q$ es $NULL$, no hay puntos para buscar, por lo que la función finaliza. En cambio, si $Q.coordinate$ está dentro de la región de búsqueda $R$, se agrega a la lista de resultados. La función verifica recursivamente cada subárbol ($NE$, $NW$, $SE$, $SW$) solo si: el subárbol correspondiente no es $NULL$, el límite del subárbol interseca la región de búsqueda $R$ (para evitar una recursión innecesaria). El algoritmo continúa recursivamente hasta que se han encontrado todos los puntos relevantes.\cite{samet_spatial_structures}
             \begin{algorithm}
                 \caption{RANGE\_SEARCH(Q, R, result)}
                 \begin{algorithmic}[1]
@@ -265,10 +284,79 @@
                 
                 \end{algorithmic}
             \end{algorithm}
+            \subsubsection{Optimización Mediante Poda}
+                La \textbf{poda en Quadtrees} optimiza la búsqueda descartando regiones completas que \textbf{no intersectan} con la zona de búsqueda, evitando exploraciones innecesarias. Esto reduce la cantidad de nodos visitados, mejorando la eficiencia y permitiendo que la búsqueda se realice en \textbf{O(logN)} en casos balanceados.
+
+                \textbf{Para realizar la poda debemos hacer lo siguiente:}
+                \begin{enumerate}
+                    \item \textbf{Verificar si el nodo actual es NULL}
+                    \begin{itemize}
+                        \item Si el nodo \textbf{no existe}, se retorna inmediatamente sin explorar más.
+                    \end{itemize}
+                    
+                    \item \textbf{Comprobar si la región del nodo intersecta con la región de búsqueda}
+                    \begin{itemize}
+                        \item Si el área representada por el nodo \textbf{NO INTERSECTA} con la región de búsqueda, \textbf{se descarta todo el subárbol}, evitando llamadas recursivas innecesarias.
+                    \end{itemize}
+                    
+                    \item \textbf{Si el nodo contiene un punto, verificar si está dentro de la región de búsqueda}
+                    \begin{itemize}
+                        \item Si el punto está dentro del rango, \textbf{se añade al resultado}.
+                    \end{itemize}
+                    
+                    \item \textbf{Si la región del nodo sí intersecta con la búsqueda, continuar la recursión solo en los subárboles relevantes}
+                \end{enumerate}
+            \subsubsection{Complejidad Computacional}
+                La complejidad de tiempo del peor caso depende de la cantidad de puntos dentro de la región de búsqueda:
+                \begin{itemize}
+                \item \textbf{Mejor caso:} $O(\log N)$ (para árboles dispersos donde la recursión es mínima).
+                \item \textbf{Peor caso:} $O(N)$ (si todos los puntos están dentro de la región de búsqueda y necesitan ser verificados).
+                \end{itemize}
     %----------------------------------------------------------
 %----------------------------------------------------------
 % CONCLUTIONS
 %----------------------------------------------------------        
+    \section{Análisis comparativo}
+        \subsection*{K-D Tree:}
+            Un K-D Tree es una estructura de datos en forma de árbol binario donde cada nodo es un punto en un espacio k-dimensional. Cada nivel del árbol compara una dimensión diferente, alternando entre ellas en cada nivel de profundidad. Las aplicaciones de los K-D Trees incluyen búsquedas multidimensionales, como búsquedas de rango y de vecinos más cercanos, así como compresión de imágenes.
+        
+        \subsection*{Inserción:}
+            \begin{itemize}
+            \item \textbf{Número de puntos de datos:} Se observa que, en teoría, el tiempo de construcción en el peor de los casos para ambos árboles es $O(n \log n)$, pero en promedio es $O(N)$. En la práctica, la construcción de Quadtrees requiere más tiempo que la de K-D Trees debido a la mayor profundidad de recorrido por inserción en los Quadtrees.
+            \begin{figure}[h]
+                \centering
+                \includegraphics[width=\linewidth]{figures/Insertion.pdf}
+                \caption{Inserción \cite{amay12_spatialsearch}}
+                \label{fig:representation_figure}
+            \end{figure}
+            \item \textbf{Distribución de densidad de puntos:} A medida que aumenta la densidad de puntos en una región específica del plano 2D, disminuye el tiempo promedio de construcción e inserción para ambos árboles, ya que es menos probable que se creen nuevos nodos hijos.
+            \end{itemize}
+            \begin{figure}[h]
+                \centering
+                \includegraphics[width=\linewidth]{figures/insertion2.pdf}
+                \caption{Inserción \cite{amay12_spatialsearch}}
+                \label{fig:representation_figure}
+            \end{figure}
+        \subsection*{Búsqueda:}
+            \begin{itemize}
+            \item \textbf{Número de puntos de datos:} Se encuentra que los Quadtrees son más rápidos que los K-D Trees en operaciones de búsqueda a medida que aumenta el tamaño de los datos. Esto se debe a que los Quadtrees tienen un factor de ramificación de 4, lo que reduce la profundidad del árbol en comparación con los K-D Trees, que tienen un factor de ramificación de 2.\\
+                \begin{figure}[h]
+                \centering
+                \includegraphics[width=\linewidth]{figures/Search1.pdf}
+                \caption{Inserción \cite{amay12_spatialsearch}}
+                \label{fig:representation_figure}
+            \end{figure}
+            \item \textbf{Distribución de densidad de puntos:} Con una distribución dispersa de puntos, los Quadtrees superan a los K-D Trees en términos de tiempo de búsqueda. Sin embargo, a medida que la densidad aumenta, el rendimiento relativo de los Quadtrees sigue siendo mejor, excepto en casos donde el Quadtree está sesgado, lo que puede llevar a una complejidad temporal promedio de $O(n)$.\\
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=\linewidth]{figures/Search2-density.pdf}
+                    \caption{Inserción \cite{amay12_spatialsearch}}
+                    \label{fig:representation_figure}
+                \end{figure}
+            \end{itemize}
+        
+        \subsection*{Búsqueda del vecino más cercano:}
+            Los K-D Trees son muy eficientes en la búsqueda del vecino más cercano, con una complejidad temporal promedio de $O(\log N)$, siempre que el árbol no esté altamente desequilibrado. Por otro lado, los Quadtrees no están optimizados para este tipo de búsqueda y pueden requerir más tiempo para calcular el vecino más cercano.\\
     \section{Aplicaciones Prácticas}
         \subsection{Detección de Bordes usando Quad Tree}
 
@@ -351,12 +439,17 @@
             \caption{Representación grafica de colisiones} 
             \label{fig:colision_figure}
         \end{figure}
-    \section{Limitaciones}
         
     \section{Conclusiones}
 
         \begin{itemize}
-        \item Es uno de las mejores estructuras de datos para almacenar grandes volumenes de información
+            \item Es uno de las mejores estructuras de datos para almacenar grandes volumenes de información.
+            \item La segmentación basada en Quadtree destaca por su capacidad para reducir el ruido, clasificar eficientemente las regiones homogéneas y refinar los bordes de las imágenes, mejorando la precisión sin comprometer el rendimiento. Por esta razón, esta estructura continúa siendo una herramienta clave para el manejo eficiente de información en escenarios de alto volumen de datos.
+            \item El Quadtree es una estructura poderosa para organizar datos espaciales. Sus algoritmos de inserción y búsqueda son eficientes en casos balanceados, con $O(\log N)$, pero pueden degradarse a $O(N)$ en situaciones desbalanceadas.
+            \item El uso de poda mejora el rendimiento, descartando regiones completas del espacio durante las búsquedas.
+            \item Es una opción superior a estructuras lineales para manejar datos en 2D, especialmente en aplicaciones como GIS, gráficos y videojuegos.
+            \item Quadtrees son más eficientes que K-D Trees para búsquedas espaciales (por rango o región) cuando se realizan consultas frecuentes debido a la poda efectiva que reduce regiones exploradas innecesariamente.
+            \item K-D Trees son superiores en operaciones como búsqueda del vecino más cercano y en la construcción rápida del árbol, especialmente cuando las consultas espaciales son menos frecuentes y se busca eficiencia en la inserción y construcción inicial del índice.\\
         \end{itemize}
     
     \defbibheading{bibliography}{\section*{Referencias}}

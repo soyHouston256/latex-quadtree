@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber main"] 0 "main.bcf" "main.bbl" "main" 1741577990.70393 -1
-  "main.bcf" 1741577990.46324 108778 ce5a2d49d7a0980a3b6158a2ab0c32a5 "pdflatex"
-  "rho.bib" 1741577636.19873 1937 eccd36e897fce07054b4bf1006f35ea7 ""
+["biber main"] 1741581079.52505 "main.bcf" "main.bbl" "main" 1741581594.82864 0
+  "main.bcf" 1741581594.58704 108778 ce5a2d49d7a0980a3b6158a2ab0c32a5 "pdflatex"
+  "rho.bib" 1741581079.29582 1939 6e3da09c72a7ef84de0492b854a94457 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1741577988.23385 "/Users/maxhoustonramirezmartel/code/personales/latex/qubetree/main.tex" "main.pdf" "main" 1741577990.70421 0
-  "/Users/maxhoustonramirezmartel/code/personales/latex/qubetree/main.tex" 1741577987.97802 38432 6bfd29b4233fdb9eb2fa50ed789f31b3 ""
+["pdflatex"] 1741581592.39255 "/Users/maxhoustonramirezmartel/code/personales/latex/qubetree/main.tex" "main.pdf" "main" 1741581594.82891 0
+  "/Users/maxhoustonramirezmartel/code/personales/latex/qubetree/main.tex" 1741581592.15574 38402 482073f8189d3000ca16c9f6a14b2ab8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathcal.enc" 1610747736 3356 2818ff063f8b5d0d850e1203330b9fda ""
@@ -353,11 +353,11 @@
   "figures/quad-tree.pdf" 1741573979.48105 18236 b1a70cf9d6e31682719a43df8a57ae03 ""
   "figures/quadtree-collision.pdf" 1741558984.86546 35899 371151c837116008cc8b8582a766ec38 ""
   "figures/quadtree.pdf" 1741558898.63504 9342 59ca3e2b0adc326b206a8a05ae139fe6 ""
-  "main.aux" 1741577990.4566 14686 8a8d9e670f96c70524eb9b6b3b5b23a8 "pdflatex"
-  "main.bbl" 1741577658.02118 7680 388678a8700619089ed56e1b790e4e46 "biber main"
-  "main.run.xml" 1741577990.46402 2395 d1d287e5967c0ad996a37ca784536b54 "pdflatex"
-  "main.tex" 1741577987.97802 38432 6bfd29b4233fdb9eb2fa50ed789f31b3 ""
-  "main.toc" 1741577990.4641 2176 b60347130e08f209288022f267973a19 "pdflatex"
+  "main.aux" 1741581594.58066 14846 375fd92987be428c0fc8d0d45f8cf1d0 "pdflatex"
+  "main.bbl" 1741581082.30231 7681 6801ddc8f0413fda4231439327a47c8f "biber main"
+  "main.run.xml" 1741581594.58774 2395 d1d287e5967c0ad996a37ca784536b54 "pdflatex"
+  "main.tex" 1741581592.15574 38402 482073f8189d3000ca16c9f6a14b2ab8 ""
+  "main.toc" 1741581594.58782 2173 7e54e8f6f8a4951c2acfee526da81192 "pdflatex"
   "rho-class/rho.cls" 1741552799.12702 16878 c563e3359389cc92dda0efbb48d0f9d3 ""
   "rho-class/rhobabel.sty" 1741552799.12762 3043 bce4f61aa7159e31b74138540249a313 ""
   "rho-class/rhoenvs.sty" 1741552799.12785 3232 2710b6b553fc2b0389d4c7717dc6bb5a ""

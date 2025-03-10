@@ -3,23 +3,23 @@
 \contentsline {section}{\numberline {2} Conceptos Fundamentales }{1}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Fundamentos}{1}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Trabajos relacionados}{2}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Segmentación basada en Quadtree}{2}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Visualización y Representación}{2}{section.3}%
+\contentsline {subsection}{\numberline {2.3}Segmentación basada en Quad Tree}{2}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Operaciones}{2}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Inserción}{2}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Búsqueda(punto exacto)}{3}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}Complejidad Computacional}{3}{subsubsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.3}Búsqueda por Rango}{3}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Optimización Mediante Poda}{3}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}Complejidad Computacional}{3}{subsubsection.3.3.2}%
-\contentsline {section}{\numberline {4}Análisis comparativo}{4}{section.4}%
+\contentsline {subsubsection}{\numberline {3.3.1}Complejidad Computacional}{3}{subsubsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.4}Optimización Mediante Poda}{3}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Análisis comparativo entre Quad Tree y K-D Tree}{4}{section.4}%
 \contentsline {section}{\numberline {5}Aplicaciones Prácticas}{4}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Detección de Bordes usando Quad Tree}{4}{subsection.5.1}%
 \contentsline {subsubsection}{\numberline {5.1.1}Detección de Bordes}{5}{subsubsection.5.1.1}%
 \contentsline {subsubsection}{\numberline {5.1.2}Pasos para Implementar Detección de Bordes con Quad Trees}{5}{subsubsection.5.1.2}%
 \contentsline {subsubsection}{\numberline {5.1.3}Ventajas del Uso de Quad Trees en Detección de Bordes}{5}{subsubsection.5.1.3}%
-\contentsline {subsection}{\numberline {5.2}Detección de colisiones}{5}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.2}Detección de Colisiones}{5}{subsection.5.2}%
 \contentsline {subsubsection}{\numberline {5.2.1}Funcionamiento}{5}{subsubsection.5.2.1}%
 \contentsline {subsubsection}{\numberline {5.2.2}Ventajas del uso de Quad Trees}{5}{subsubsection.5.2.2}%
 \contentsline {subsubsection}{\numberline {5.2.3}Implementación práctica}{5}{subsubsection.5.2.3}%
-\contentsline {section}{\numberline {6}Conclusiones}{5}{section.6}%
+\contentsline {section}{\numberline {6}Conclusiones}{6}{section.6}%
 \contentsfinish 

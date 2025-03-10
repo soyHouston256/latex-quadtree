@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.24)  9 MAR 2025 22:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.24)  9 MAR 2025 23:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1486,38 +1486,7 @@ Package csquotes Info: Redefining alias 'default' -> 'english'.
 LaTeX Font Info:    Trying to load font information for T1+stix2 on input line 105.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/stix2-type1/t1stix2.fd
 File: t1stix2.fd 2018/04/02 v2.0.0-latex stix2 T1 font definitions
-) (./main.aux
-
-LaTeX Warning: Label `fig:representation_figure' multiply defined.
-
-
-LaTeX Warning: Label `fig:representation_figure@cref' multiply defined.
-
-
-LaTeX Warning: Label `fig:representation_figure' multiply defined.
-
-
-LaTeX Warning: Label `fig:representation_figure@cref' multiply defined.
-
-
-LaTeX Warning: Label `fig:representation_figure' multiply defined.
-
-
-LaTeX Warning: Label `fig:representation_figure@cref' multiply defined.
-
-
-LaTeX Warning: Label `fig:representation_figure' multiply defined.
-
-
-LaTeX Warning: Label `fig:representation_figure@cref' multiply defined.
-
-
-LaTeX Warning: Label `fig:representation_figure' multiply defined.
-
-
-LaTeX Warning: Label `fig:representation_figure@cref' multiply defined.
-
-)
+) (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 105.
@@ -1756,7 +1725,7 @@ File: figures/quad-tree.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/quad-tree.pdf  used on input line 131.
 (pdftex.def)             Requested size: 255.688pt x 180.6835pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 127--136
+Underfull \hbox (badness 10000) in paragraph at lines 127--135
 
  []
 
@@ -1767,14 +1736,14 @@ Underfull \vbox (badness 3977) has occurred while \output is active []
 
 
  <./figures/quadtree.pdf>]
-LaTeX Font Info:    Trying to load font information for TS1+stix2 on input line 142.
+LaTeX Font Info:    Trying to load font information for TS1+stix2 on input line 141.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/stix2-type1/ts1stix2.fd
 File: ts1stix2.fd 2018/04/02 v2.0.0-latex stix2 TS1 font definitions
 )
 Package microtype Info: Character `textflorin ' is missing
 (microtype)             in font `TS1/stix2/m/n/9'.
 (microtype)             Ignoring protrusion settings for this character.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 159.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 158.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1783,18 +1752,18 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 6.64998pt on input line 208.
+(Font)              scaled to size 6.64998pt on input line 207.
  [2{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/stix2-type1/stix2-ts1.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./figures/quad-tree.pdf>]
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.59998pt on input line 248.
+(Font)              scaled to size 7.59998pt on input line 247.
 LaTeX Font Info:    Font shape `T1/phv/b/it' in size <8> not available
-(Font)              Font shape `T1/phv/b/sl' tried instead on input line 248.
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 247.
 LaTeX Font Info:    Font shape `T1/phv/b/sl' will be
-(Font)              scaled to size 7.59998pt on input line 248.
+(Font)              scaled to size 7.59998pt on input line 247.
  [3{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathsf.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathcal.enc}]
 
 pdfTeX warning: pdflatex (file ./figures/Insertion.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/Insertion.pdf, id=78, 451.6875pt x 279.29344pt>
+<figures/Insertion.pdf, id=76, 451.6875pt x 279.29344pt>
 File: figures/Insertion.pdf Graphic file (type pdf)
 <use figures/Insertion.pdf>
 Package pdftex.def Info: figures/Insertion.pdf  used on input line 328.
@@ -1802,7 +1771,7 @@ Package pdftex.def Info: figures/Insertion.pdf  used on input line 328.
 
 
 pdfTeX warning: pdflatex (file ./figures/insertion2.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/insertion2.pdf, id=80, 451.6875pt x 279.29344pt>
+<figures/insertion2.pdf, id=78, 451.6875pt x 279.29344pt>
 File: figures/insertion2.pdf Graphic file (type pdf)
 <use figures/insertion2.pdf>
 Package pdftex.def Info: figures/insertion2.pdf  used on input line 336.
@@ -1810,7 +1779,7 @@ Package pdftex.def Info: figures/insertion2.pdf  used on input line 336.
 
 
 pdfTeX warning: pdflatex (file ./figures/Search1.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/Search1.pdf, id=82, 451.6875pt x 279.29344pt>
+<figures/Search1.pdf, id=80, 451.6875pt x 279.29344pt>
 File: figures/Search1.pdf Graphic file (type pdf)
 <use figures/Search1.pdf>
 Package pdftex.def Info: figures/Search1.pdf  used on input line 345.
@@ -1818,28 +1787,28 @@ Package pdftex.def Info: figures/Search1.pdf  used on input line 345.
 
 
 pdfTeX warning: pdflatex (file ./figures/Search2-density.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/Search2-density.pdf, id=84, 491.8375pt x 319.44344pt>
+<figures/Search2-density.pdf, id=82, 491.8375pt x 319.44344pt>
 File: figures/Search2-density.pdf Graphic file (type pdf)
 <use figures/Search2-density.pdf>
-Package pdftex.def Info: figures/Search2-density.pdf  used on input line 352.
+Package pdftex.def Info: figures/Search2-density.pdf  used on input line 353.
 (pdftex.def)             Requested size: 255.688pt x 166.06766pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--360
+Underfull \hbox (badness 10000) in paragraph at lines 360--361
 
  []
 
 [4 <./figures/Insertion.pdf> <./figures/insertion2.pdf> <./figures/Search1.pdf> <./figures/Search2-density.pdf>]
-Underfull \hbox (badness 2253) in paragraph at lines 388--389
+Underfull \hbox (badness 2253) in paragraph at lines 389--390
 []\T1/stix2/b/n/9 (+20) Escalabilidad: \T1/stix2/m/n/9 (+20) La es-truc-tura per-mite mane-jar imá-genes
  []
 
 
 
 pdfTeX warning: pdflatex (file ./figures/edge-detection.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<figures/edge-detection.pdf, id=107, 803.0pt x 602.25pt>
+<figures/edge-detection.pdf, id=108, 803.0pt x 602.25pt>
 File: figures/edge-detection.pdf Graphic file (type pdf)
 <use figures/edge-detection.pdf>
-Package pdftex.def Info: figures/edge-detection.pdf  used on input line 396.
+Package pdftex.def Info: figures/edge-detection.pdf  used on input line 397.
 (pdftex.def)             Requested size: 255.688pt x 191.76822pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1847,31 +1816,31 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 pdfTeX warning: pdflatex (file ./figures/quadtree-collision.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<figures/quadtree-collision.pdf, id=108, 803.0pt x 602.25pt>
+<figures/quadtree-collision.pdf, id=110, 803.0pt x 602.25pt>
 File: figures/quadtree-collision.pdf Graphic file (type pdf)
 <use figures/quadtree-collision.pdf>
-Package pdftex.def Info: figures/quadtree-collision.pdf  used on input line 438.
+Package pdftex.def Info: figures/quadtree-collision.pdf  used on input line 439.
 (pdftex.def)             Requested size: 255.688pt x 191.76822pt.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[5 <./figures/edge-detection.pdf>]
-Underfull \hbox (badness 1406) in paragraph at lines 452--453
+ [5 <./figures/edge-detection.pdf>]
+Underfull \hbox (badness 1406) in paragraph at lines 454--455
 \T1/stix2/m/n/9 (+20) es-pe-cial-mente cuando las con-sul-tas es-pa-ciales son menos
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 452--453
+Underfull \hbox (badness 10000) in paragraph at lines 454--455
 
  []
 
 (./main.toc
-LaTeX Font Info:    Trying to load font information for TS1+phv on input line 13.
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 18.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
-(Font)              scaled to size 6.64998pt on input line 13.
+(Font)              scaled to size 6.64998pt on input line 18.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `phv' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
@@ -1887,27 +1856,23 @@ enddocument/afterlastpage: lastpage setting LastPage.
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 69215 strings out of 474116
- 1506937 string characters out of 5743681
- 2643724 words of memory out of 5000000
- 90312 multiletter control sequences out of 15000+600000
- 824429 words of font info for 404 fonts, out of 8000000 for 9000
+ 69235 strings out of 474116
+ 1507308 string characters out of 5743681
+ 2643321 words of memory out of 5000000
+ 90323 multiletter control sequences out of 15000+600000
+ 824804 words of font info for 410 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 137i,12n,143p,1115b,1925s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 137i,12n,143p,1115b,1933s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/stix2-type1/STIX2Math.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/stix2-type1/STIX2Text-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/stix2-type1/STIX2Text-Italic.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/stix2-type1/STIX2Text-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (6 pages, 922067 bytes).
+Output written on main.pdf (6 pages, 922873 bytes).
 PDF statistics:
- 331 PDF objects out of 1000 (max. 8388607)
- 257 compressed objects within 3 object streams
+ 333 PDF objects out of 1000 (max. 8388607)
+ 259 compressed objects within 3 object streams
  57 named destinations out of 1000 (max. 500000)
  94957 words of extra memory for PDF output out of 106986 (max. 10000000)
 

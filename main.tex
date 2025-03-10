@@ -153,8 +153,118 @@
             Los registros se insertan en árboles cuaternarios de puntos de una manera similar a la que se hace para los árboles de búsqueda binaria. En esencia, buscamos el registro deseado en función de sus coordenadas \(x\) e \(y\). En cada nodo se realiza una comparación mediante el uso del procedimiento \texttt{PT\_COMPARE} y se elige el subárbol apropiado para la siguiente prueba. Al llegar al final del árbol (es decir, cuando se encuentra un puntero \texttt{NIL}), encontramos la ubicación donde se insertará el registro. La inserción real se logra mediante el uso del procedimiento \texttt{PT\_INSERT}.
         
             Para manejar los puntos de datos que se encuentran directamente en una de las líneas del cuadrante que emanan de un punto de datos, digamos \(P\), adoptamos las mismas convenciones utilizadas para el método de cuadrícula; los límites inferior e izquierdo de cada bloque están cerrados, mientras que los límites superior y derecho de cada bloque están abiertos.
-        \subsection{Búsqueda}
+            \begin{algorithm}
+                \caption{PT\_COMPARE(P, R)}
+                \begin{algorithmic}[1]
+                    \Statex \textbf{Input:} Pointer nodes $P$, $R$
+                    \Statex \textbf{Output:} Quadrant where node $P$ belongs in the quadtree rooted at $R$
+                    \If {$XCOORD(P) < XCOORD(R)$}
+                    \If {$YCOORD(P) < YCOORD(R)$}
+                    \State \Return 'SW'
+                    \Else
+                    \State \Return 'NW'
+                    \EndIf
+                    \Else
+                    \If {$YCOORD(P) < YCOORD(R)$}
+                    \State \Return 'SE'
+                    \Else
+                    \State \Return 'NE'
+                    \EndIf
+                    \EndIf
+                \end{algorithmic}
+            \end{algorithm}
+            \begin{algorithm}
+                \caption{PT\_INSERT(P, R)}
+                \begin{algorithmic}[1]
+                    \Statex \textbf{Input:} Pointer node $P$, reference pointer node $R$
+                    \Statex \textbf{Output:} Insert node $P$ into the point quadtree rooted at $R$
+                    \If {$R = \text{null}$}
+                    \State $R \gets P$ \Comment{The tree at $R$ is initially empty}
+                    \Else
+                    \State $T \gets R$
+                    \While {not($T = \text{null}$) and not(EQUAL\_COORD$(P, T)$)}
+                    \State $F \gets T$ \Comment{Remember the father}
+                    \State $Q \gets$ PT\_COMPARE$(P, T)$
+                    \State $T \gets$ SON$(T, Q)$
+                    \EndWhile
+                    \If {$T = \text{null}$}
+                    \State SON$(F, Q) \gets P$ \Comment{$P$ is not already in the tree}
+                    \EndIf
+                    \EndIf
+                \end{algorithmic}
+            \end{algorithm}
+            
+            
+        \subsection{Búsqueda(punto exacto)}
+            \begin{algorithm}
+                \caption{SEARCH(Q, p)}
+                \begin{algorithmic}[1]
+                \Statex \textbf{Input:} A Quadtree node $Q$ and a point $p$
+                \Statex \textbf{Output:} The value associated with point $p$ or \textbf{NULL} if not found
+                
+                \If {$Q = \text{NULL}$} 
+                    \State \Return \textbf{NULL} \Comment{The point is not in the tree}
+                \EndIf
+                
+                \If {$Q.\text{coordinate} = p$}
+                    \State \Return $Q.\text{value}$ \Comment{Exact point found}
+                \EndIf
+                
+                \If {$p$ is contained in the NE quadrant of $Q.\text{boundary}$}
+                    \State \Return SEARCH($Q.\text{NE}$, $p$)
+                \EndIf
+                
+                \If {$p$ is contained in the NW quadrant of $Q.\text{boundary}$}
+                    \State \Return SEARCH($Q.\text{NW}$, $p$)
+                \EndIf
+                
+                \If {$p$ is contained in the SE quadrant of $Q.\text{boundary}$}
+                    \State \Return SEARCH($Q.\text{SE}$, $p$)
+                \EndIf
+                
+                \If {$p$ is contained in the SW quadrant of $Q.\text{boundary}$}
+                    \State \Return SEARCH($Q.\text{SW}$, $p$)
+                \EndIf
+                
+                \State \Return \textbf{NULL} \Comment{The point is not in the Quadtree}
+                
+                \end{algorithmic}
+            \end{algorithm}
         \subsection{Búsqueda por Rango}
+            \begin{algorithm}
+                \caption{RANGE\_SEARCH(Q, R, result)}
+                \begin{algorithmic}[1]
+                    \Statex \textbf{Input:} A Quadtree node $Q$, a rectangular search region $R$, and a list $result$
+                    \Statex \textbf{Output:} A list of points contained within $R$
+                    
+                    \If {$Q = \text{NULL}$}
+                        \State \Return \Comment{No points to search}
+                    \EndIf
+                    
+                    \If {$Q.\text{coordinate}$ is inside $R$}
+                        \State Append $Q.\text{coordinate}$ to $result$ \Comment{Point is within the range}
+                    \EndIf
+                    
+                    \If {$Q.\text{NE} \neq \text{NULL}$ and $Q.\text{NE}.\text{boundary}$ intersects $R$}
+                        \State RANGE\_SEARCH($Q.\text{NE}$, $R$, $result$)
+                    \EndIf
+                    
+                    \If {$Q.\text{NW} \neq \text{NULL}$ and $Q.\text{NW}.\text{boundary}$ intersects $R$}
+                        \State RANGE\_SEARCH($Q.\text{NW}$, $R$, $result$)
+                    \EndIf
+                    
+                    \If {$Q.\text{SE} \neq \text{NULL}$ and $Q.\text{SE}.\text{boundary}$ intersects $R$}
+                        \State RANGE\_SEARCH($Q.\text{SE}$, $R$, $result$)
+                    \EndIf
+                    
+                    \If {$Q.\text{SW} \neq \text{NULL}$ and $Q.\text{SW}.\text{boundary}$ intersects $R$}
+                        \State RANGE\_SEARCH($Q.\text{SW}$, $R$, $result$)
+                    \EndIf
+                    
+                    \State \Return \Comment{Result list is updated recursively}
+                
+                \end{algorithmic}
+            \end{algorithm}
     %----------------------------------------------------------
 %----------------------------------------------------------
 % CONCLUTIONS
@@ -241,7 +351,7 @@
             \caption{Representación grafica de colisiones} 
             \label{fig:colision_figure}
         \end{figure}
-        \section{Limitaciones}
+    \section{Limitaciones}
         
     \section{Conclusiones}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.24)  9 MAR 2025 17:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.24)  9 MAR 2025 19:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1739,35 +1739,42 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.59998pt on input line 167.
-LaTeX Font Info:    Font shape `T1/phv/b/it' in size <8> not available
-(Font)              Font shape `T1/phv/b/sl' tried instead on input line 167.
-LaTeX Font Info:    Font shape `T1/phv/b/sl' will be
-(Font)              scaled to size 7.59998pt on input line 167.
+(Font)              scaled to size 6.64998pt on input line 276.
+ [2{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/stix2-type1/stix2-ts1.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathsf.enc}]
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 6.64998pt on input line 183.
- [2{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/stix2-type1/stix2-ts1.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
-Underfull \hbox (badness 2253) in paragraph at lines 190--191
+(Font)              scaled to size 7.59998pt on input line 277.
+LaTeX Font Info:    Font shape `T1/phv/b/it' in size <8> not available
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 277.
+LaTeX Font Info:    Font shape `T1/phv/b/sl' will be
+(Font)              scaled to size 7.59998pt on input line 277.
+
+Underfull \hbox (badness 2253) in paragraph at lines 300--301
 []\T1/stix2/b/n/9 (+20) Escalabilidad: \T1/stix2/m/n/9 (+20) La es-truc-tura per-mite mane-jar imá-genes
  []
 
 
 
 pdfTeX warning: pdflatex (file ./figures/edge-detection.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<figures/edge-detection.pdf, id=53, 803.0pt x 602.25pt>
+<figures/edge-detection.pdf, id=47, 803.0pt x 602.25pt>
 File: figures/edge-detection.pdf Graphic file (type pdf)
 <use figures/edge-detection.pdf>
-Package pdftex.def Info: figures/edge-detection.pdf  used on input line 198.
+Package pdftex.def Info: figures/edge-detection.pdf  used on input line 308.
 (pdftex.def)             Requested size: 255.688pt x 191.76822pt.
 
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[3{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathcal.enc}]
 
 pdfTeX warning: pdflatex (file ./figures/quadtree-collision.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<figures/quadtree-collision.pdf, id=54, 803.0pt x 602.25pt>
+<figures/quadtree-collision.pdf, id=67, 803.0pt x 602.25pt>
 File: figures/quadtree-collision.pdf Graphic file (type pdf)
 <use figures/quadtree-collision.pdf>
-Package pdftex.def Info: figures/quadtree-collision.pdf  used on input line 240.
+Package pdftex.def Info: figures/quadtree-collision.pdf  used on input line 350.
 (pdftex.def)             Requested size: 255.688pt x 191.76822pt.
-[3 <./figures/edge-detection.pdf> <./figures/quadtree-collision.pdf>] (./main.toc
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+(./main.toc
 LaTeX Font Info:    Trying to load font information for TS1+phv on input line 14.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
@@ -1782,7 +1789,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [4
+ [4 <./figures/edge-detection.pdf> <./figures/quadtree-collision.pdf>] [5
 
 ] 
 enddocument/afterlastpage: lastpage setting LastPage.
@@ -1796,18 +1803,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 69105 strings out of 474116
- 1504762 string characters out of 5743681
- 2632476 words of memory out of 5000000
- 90237 multiletter control sequences out of 15000+600000
- 823297 words of font info for 396 fonts, out of 8000000 for 9000
+ 69149 strings out of 474116
+ 1505529 string characters out of 5743681
+ 2645476 words of memory out of 5000000
+ 90272 multiletter control sequences out of 15000+600000
+ 823452 words of font info for 397 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 137i,12n,143p,1115b,1930s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 137i,12n,143p,1115b,1929s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/stix2-type1/STIX2Math.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/stix2-type1/STIX2Text-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/stix2-type1/STIX2Text-Italic.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/stix2-type1/STIX2Text-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (4 pages, 789760 bytes).
+Output written on main.pdf (5 pages, 808376 bytes).
 PDF statistics:
- 247 PDF objects out of 1000 (max. 8388607)
- 192 compressed objects within 2 object streams
- 41 named destinations out of 1000 (max. 500000)
+ 266 PDF objects out of 1000 (max. 8388607)
+ 207 compressed objects within 3 object streams
+ 46 named destinations out of 1000 (max. 500000)
  94908 words of extra memory for PDF output out of 106986 (max. 10000000)
 
